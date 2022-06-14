@@ -22,6 +22,7 @@ Robot Framework Style Guide
   - Loops and IF Blocks
   - High Level Blocks (kw in tc)
 - Trailing Spaces?
+  - [#trailing-whitespace](https://robocop.readthedocs.io/en/stable/rules.html#trailing-whitespace)
 - Spacing in SettingsHeaders
 
 
