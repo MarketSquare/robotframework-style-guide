@@ -38,7 +38,12 @@ Robot Framework Style Guide
 
 ### Line Continations
 
-
+#### Variables
+- Line continuation in
+  - Scalar
+  - Dicts
+  - Lists
+ 
 
 
 ## Suite Level Rules
@@ -55,3 +60,4 @@ Robot Framework Style Guide
 
 
 ## Variable Rules
+
