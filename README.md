@@ -15,8 +15,8 @@ Robot Framework Style Guide
   - Separators between Arguments
   - Separators in Statements (FOR, IF, WHILE)
   - Separators between Variables and Keyword
-  - Space between Vars and = ?
-  - Separators before Comments
+  - Space between Vars and = ? (and whether to use "=" at all)
+  - Separators before Comments and after comment char
   - Alignment/Separators Line Continuation
 - Indentation of Blocks
   - Loops and IF Blocks
@@ -24,6 +24,8 @@ Robot Framework Style Guide
 - Trailing Spaces?
   - [#trailing-whitespace](https://robocop.readthedocs.io/en/stable/rules.html#trailing-whitespace)
 - Spacing in SettingsHeaders
+- Indentation to block (in some cases)
+- Max. length of lines (_does belong here?_)
 
 
 #### Vertical Spacing
@@ -35,29 +37,43 @@ Robot Framework Style Guide
   - Spacing between templated TestCases
 - Empty Line at end?
 - Spacing between Settings in Settings Section
+- Using of empty lines in the middle of a KW (or TC, headers, ...)
 
-### Line Continations
+### Line Continuations
 
 #### Variables
 - Line continuation in
   - Scalar
   - Dicts
   - Lists
- 
 
+### Naming
+- ... of (local vs. global) variables, KWs, TCs, tags, files (including extensions `.robot` vs. `.resource`)
+- (Non-)allowed characters, naming conventions like snake case, camel case etc.
+- Semantic rules, e.g.
+  - Boolean variables starts with a verb: _is__, _does__, _has__, ...
+  - KW are in imperative mood
+- Length of names
+
+### Documentation
+- What should be documented (global variables, KWs, TCs, TSs...?)
 
 ## Suite Level Rules
+- Max. number of lines in a file (this is not only for suite files)
+- Max. number of TCs in a file (except for when written using a template)
 
 ### Vertical Orders
 - Order of Sections
-- Oder in Settings Section
+- Order in Settings Section
 
 ### Test Level Rules
+- Max. number of KW calls in a test
 
 ## Resource Level Rules
+- Max. number of KW calls in a KW
+
 
 ### Vertical Orders
 
 
 ## Variable Rules
-
