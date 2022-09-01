@@ -1,16 +1,9 @@
 ## Documentation
 
 
-
-
-Examples
-Arguments (and explanations)
-Return values
-Accessing Global variables
-
 ### Documentation of TestSuites
-### Documentation of Resources
 
+### Documentation of Resources
 
 ### Documentation of Keywords
 The following guidelines are providing for different ways of reading the documentation.
@@ -19,8 +12,7 @@ The following guidelines are providing for different ways of reading the documen
 2. Popup documentation in an IDE when using keywords
 3. Written documentation for use when making changes to the keyword
 
-
-Arguments in documentation is taken from the tag `[Arguments]` and only needs to be described in detail if the arguments are not selfexplanatory.
+Arguments in documentation is taken from the tag `[Arguments]` and only needs to be mentioned elsewhere if the arguments are not selfexplanatory.
 
 Documentation is everything within the tag `[Documentation]` and is split up in different sections.
 
@@ -29,24 +21,27 @@ Documentation is everything within the tag `[Documentation]` and is split up in 
 * Explanation of the arguments
 * Accessing / Setting Global variables
 * Return value(s)
-* Example usage
+* Example usage (always in a codeblock)
 
 #### Arguments
 
 Example robotframework syntax
 ```
-Verify Message
+Validate Message
     [Documentation]
-    ...    This keyword verifies a message.
+    ...    This keyword validates a message.
     ...
     ...    *Precondition:*
     ...    Go to Screen Home > Subpage One > Screen Two.
-
+    ...
+    ...    *Arguments*
+    ...    `Message`  <string> to validate 
+    ...
     ...    *Examples*
     ...
-    ...    ``Verify Message \ \ \ \ message=Data Saved``
+    ...    ``Validate Message \ \ \ \ message=Data Saved``
     [Arguments]    ${message}
 
-    SeleniumLibrary.Element Should Be Visible    //*[contains(text(),'${message}')]    Message Not Present
+    Some code
 ```
 
