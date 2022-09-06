@@ -28,24 +28,27 @@ Documentation is everything within the tag `[Documentation]` and is split up in 
 
 Example robotframework syntax
 ```
-Validate Message
-    [Documentation]
-    ...    Validates found message against `variable`.
+Keyword With Arguments
+    [Documentation]  This keyword does things
     ...
-    ...    This keyword validates a message against an expected message given as an argument. 
-    ...    The message to check is case sensitive.
+    ...    This keyword does things with arguments and returns the result.
+    ...    It does it by using the first argument such that it converts that
+    ...    combined with the second arguments into a string that is being returned.
     ...
     ...    *Precondition:*
-    ...    Go to Screen Home > Subpage One > Screen Two.
+    ...    The following things should be done before this keyword can be used.
     ...
     ...    *Arguments*
-    ...    `Message`  <string> to validate 
-    ...
+    ...    - `first argument` <int>  Number of somethings
+    ...    - `second argument` <string> Name of something
+    ...    
     ...    *Examples*
     ...
-    ...    ``Validate Message \ \ \ \ message=Data Saved``
-    [Arguments]    ${message}
-
-    Some code
+    ...    ``Keyword With Arguments\ \ \ \ 3
+    ...      Keyword With Arguments\ \ \ \ 1\ \ \ \ Pear``
+    [Tags]    tag1  tag2
+    [Arguments]    ${first argument}   ${second argument}=Apple
+    
+        Some code
 ```
 
