@@ -7,7 +7,7 @@ Robot Framework Style Guide
 
 ### Spacing (Line Break, Line Spacing, Indentation, Spaces)
 
-#### Horizontal Spacing
+#### Horizontal Spacing  (part 1, Guido)
 
 - Type of Separators (\t space pipe?)
 - Separators in line
@@ -28,7 +28,7 @@ Robot Framework Style Guide
 - Max. length of lines (_does belong here?_)
 
 
-#### Vertical Spacing
+#### Vertical Spacing (Part 2, Kelby)
 - Spacing between Section Header and first Content
 - Spacing between Sections 2!
 - Spacing between Keywords Definitions
