@@ -21,7 +21,7 @@ Robot Framework Style Guide
   - Alignment/Separators Line Continuation
 - Indentation of Blocks
   - IF Blocks, TRY/CATCH, WHILE, FOR (END)
-  - High Level Blocks (kw in tc)
+  - High Level Blocks = Required indention of Keywords within Test Cases
 - Trailing Spaces?
   - [#trailing-whitespace](https://robocop.readthedocs.io/en/stable/rules.html#trailing-whitespace)
 - Spacing in SettingsHeaders
