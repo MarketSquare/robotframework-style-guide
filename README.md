@@ -10,6 +10,7 @@ Robot Framework Style Guide
 #### Horizontal Spacing  (part 1, Guido)
 
 - Type of Separators (\t space pipe?)
+
 - Separators in line
   - Separators between Keywords and Arguments
   - Separators between Arguments
@@ -49,6 +50,8 @@ Robot Framework Style Guide
 
 ### Naming
 - ... of (local vs. global) variables, KWs, TCs, tags, files (including extensions `.robot` vs. `.resource`)
+-Tags
+-Suite / Clobal > capital case
 - (Non-)allowed characters, naming conventions like snake case, camel case etc.
 - Semantic rules, e.g.
   - Boolean variables starts with a verb: _is__, _does__, _has__, ...
