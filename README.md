@@ -48,6 +48,13 @@ Robot Framework Style Guide
   - Dicts
   - Lists
 
+#### Arguments
+- Number of Arguments before moving to new line 3 to 5
+- Vertical listing
+
+#### Chained Keywords
+- How many until new line?
+
 ### Naming
 - ... of (local vs. global) variables, KWs, TCs, tags, files (including extensions `.robot` vs. `.resource`)
 -Tags
