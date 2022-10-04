@@ -10,7 +10,7 @@ Robot Framework Style Guide
 #### Horizontal Spacing  (part 1, Guido)
 
 - Type of Separators (\t space pipe?) No pipes!
-- The recommeneded spacing between tokens is 4 spaces. While other spacing is allowable down to 2 spaces, 4 spaces is a good value for readability.
+- The recommended spacing between tokens is 4 spaces. While other spacing is allowable down to 2 spaces, 4 spaces is a good value for readability.
 - Separators in line
   - Separators between Keywords and Arguments
   - Separators between Arguments
