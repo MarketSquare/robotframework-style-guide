@@ -20,7 +20,7 @@ Robot Framework Style Guide
   - Separators before Comments and after comment char
   - Alignment/Separators Line Continuation
 - Indentation of Blocks
-  - Loops and IF Blocks
+  - IF Blocks, TRY/CATCH, WHILE, FOR (END)
   - High Level Blocks (kw in tc)
 - Trailing Spaces?
   - [#trailing-whitespace](https://robocop.readthedocs.io/en/stable/rules.html#trailing-whitespace)
