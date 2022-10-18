@@ -3,6 +3,9 @@ Robot Framework Style Guide
 
 # Table of Content
 
+##Introduction
+-Why we have style guide; readability, consistency etc. 
+
 ## Generic Coding Rules
 
 ### Spacing (Line Break, Line Spacing, Indentation, Spaces)
