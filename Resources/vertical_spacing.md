@@ -52,19 +52,22 @@ No lines of white space should exist between lines of test data in Templated Tes
 ## Spacing Between Settings Within The Settings Section
 
 It is recommended to allow 1 line of white space between common lines of settings.
-    Documentation
-    Library
-    Metadata
-    Resource
-    Variables
-    Default Tags
-    Force Tags
-    Suite Setup
-    Suite Teardown
-    Test/Task Setup
-    Test/Task Teardown
-    Test/Task Template
-    Test/Task Timeout
+    Documentation  
+    Metadata 
+
+    Library  
+    Resource  
+    Variables  
+    
+    Suite Setup  
+    Suite Teardown  
+    Test/Task Setup  
+    Test/Task Teardown  
+    Test/Task Template  
+    Test/Task Timeout  
+
+    Default Tags  
+    Force Tags  
 
 ## Spacing Between Settings Within A Test Case or Task or Keyword
 
