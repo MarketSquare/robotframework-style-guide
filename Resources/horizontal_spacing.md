@@ -2,9 +2,6 @@
 
 The recommended file format is the [space separated format](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#space-separated-format), which means that spacing between tokes is **4 spaces**
 
-While other spacing is allowed, a minimum of 2 spaces is needed for the robot framework parser.
-The 4 spaces are for readability and lesser chance of missing out on spaces that are not very well visible. Using spaces instead of other allowed characters like `|` or a tab (`\t`)
-
 - Separators in line
   - [v] Separators between Keywords and Arguments
   - [v] Separators between Arguments
@@ -50,7 +47,7 @@ ${VAR2}    2
 
 ## Line Length
 
-A line length of 120 characters is recommended. This should fit on most screens.
+A line length of 120 characters is recommended. This should fit on most screens. ([Robocop: 0508](https://robocop.readthedocs.io/en/stable/rules.html#line-too-long))
 
 ## Spacing in SettingsHeaders
 
@@ -69,7 +66,7 @@ Force Tags    mytag
 ```
 
 ## Block Spacing
-Blocks like `FOR`, `IF` or `WHILE` should always be indented such that the keywords that are run within the loop have one more spacing than the lines that start and end the block.
+Blocks like `FOR`, `IF` or `WHILE` should always be indented such that the keywords that are run within the loop have to be indented from the lines that start and end the block. ([Robocop: 1008](https://robocop.readthedocs.io/en/stable/rules.html#bad-indent))
 
 (examples from the userguide)
 
@@ -111,4 +108,18 @@ Example
         Fail    Unexpected rc: ${rc}
     END
 
+```
+
+## Comments
+
+In comments there should be a space between the `#` and the actual comment. ([Robocop: 0702](https://robocop.readthedocs.io/en/stable/rules.html#missing-space-after-comment))
+
+Comments should be alligned with the block they belong to.
+
+```robot
+# Comment about Some Keyword here
+Some Keyword
+    Called Keyword One
+    # Comment about Called Keyword Two here
+    Called Keyword Two
 ```
