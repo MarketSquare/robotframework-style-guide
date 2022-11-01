@@ -28,7 +28,7 @@ Trailing whitespaces should be avoided. [#trailing-whitespace](https://robocop.r
 
 Indentations should only be added when needed.
 
-The `*** Settings ***` section should always be left alligned without any indentation ([Robocop: 1016](https://robocop.readthedocs.io/en/stable/rules.html#suite-setting-should-be-left-aligned))
+The `*** Settings ***` section should always be left aligned without any indentation ([Robocop: 1016](https://robocop.readthedocs.io/en/stable/rules.html#suite-setting-should-be-left-aligned))
 
 ```robot
 *** Settings ***
@@ -37,7 +37,7 @@ Resource     data.resource
 Variables    vars.robot
 ```
 
-The `*** Variables ***` secion should always be left alligned without any indentation ([Robocop: 1014](https://robocop.readthedocs.io/en/stable/rules.html#variable-should-be-left-aligned))
+The `*** Variables ***` secion should always be left aligned without any indentation ([Robocop: 1014](https://robocop.readthedocs.io/en/stable/rules.html#variable-should-be-left-aligned))
 
 ```robot
 *** Variables ***
@@ -51,7 +51,9 @@ A line length of 120 characters is recommended. This should fit on most screens.
 
 ## Spacing in SettingsHeaders
 
-Within the Settings header it is recommended to allign the arguments to settings keywords according to the longest keyword added with 4 spaces. Arguments to Libraries should be alligned if there are multiple libraries that have arguments on importing.
+Arguments to settings keywords should be aligned according to the longest keyword added with 4 spaces.
+
+Arguments to libraries should be aligned if there are multiple libraries that have arguments on importing.
 
 ```robot
 *** Settings ***
@@ -114,7 +116,7 @@ Example
 
 In comments there should be a space between the `#` and the actual comment. ([Robocop: 0702](https://robocop.readthedocs.io/en/stable/rules.html#missing-space-after-comment))
 
-Comments should be alligned with the block they belong to.
+Comments should be aligned with the block they belong to.
 
 ```robot
 # Comment about Some Keyword here
