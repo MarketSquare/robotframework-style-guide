@@ -1,55 +1,154 @@
 # Line Continuations
 
 Line continuation character in Robot Framework is ellipsis: (`...`).
-Read more at: https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#dividing-data-to-several-rows
 
-...
+For more details, please refer to the [Robot Framework User Guide](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#dividing-data-to-several-rows).
 
 ## Variables
 
-It is recommended to split a variable definition across multiple lines when it exceeds the recommended line length, or readeability of the code suffers.
+It is reasonable to split a variable definition across multiple lines when it exceeds the recommended line length,
+or for the better readability of the code.
 
-It is recommended that beginning of each line is aligned vertically as shown in the examples below.
-
-&nbsp;
-
-### Scalar Variables
+Below are examples for the different variable types in different sections of the test and resources files.
 
 &nbsp;
 
-#### **Example - Long Variable in Variables Section**
+### **Variables Section**
 
-Variable definition on a single line:
+- Line continuation character (`...`) should be placed at the beginning of the new row,
+that is, not at the end of the previous row.
+- No empty continuation lines (lines containing only `...`)
+- Every new continuation line should be aligned with the previous line
+- Continuation line should not be indented
 
-```text
-*** Variable ***
-${STRING}          This string has multiple sentences. It has no newlines. It may not look nice in the code because the line is too long.
+&nbsp;
+
+EXAMPLES
+
+#### **Scalars**
+
+Scalar variable in `Variables` section on a single line:
+
+```robot
+*** Variables ***
+${STRING}    This string has multiple sentences. They are all on the same line. It may not look nice in the code because the line is too long.
 ```
 
-Variable definition split into several lines:
+Scalar variable in `Variables` section split into several lines:
 
-```text
-*** Variable ***
+```robot
+*** Variables ***
 ${STRING}    This string has multiple sentences.
-...          It has no newlines.
-...          It does not look nice in the code
-...          because the line is too long.
+...          They were all on the same line.
+...          It did not look nice in the code
+...          because the line was too long.
+...          Now it is split in rows.
 ```
 
-If the the value of this variable is printed in the test log, it will still appear on a single line.
+Mix of line continuation and a new line (note use of newline character `\n`):
 
-To print each part of a string on a new line, then `SEPARATOR` should be used:
-
-```text
-*** Variable ***
-${MULTILINE}    SEPARATOR=\n
-...             This is a multiline string.
-...             This is the second line.
-...             This is the third and the last line.
+```robot
+*** Variables ***
+${STRING}    This string has multiple sentences.
+...          This sentence will be printed on the same row
+...          in the HTML test log.
+...          And this line too.
+...          Next line will be printed \n
+...          on a new row.
 ```
+
+#### **Lists**
+
+List variable in `Variables` section on a single line:
+
+```robot
+*** Variables ***
+@{LIST}    apple    banana    peach    grape    avocado    kiwi    some very long name of the fruit which exceeds the recommended line length
+```
+
+List variable in `Variables` section split into several lines:
+
+```robot
+*** Variables ***
+@{LIST}      apple    banana    peach
+...          grape    avocado    kiwi
+...          some very long name of the fruit which exceeds the recommended line length
+
+----------------- OR (??) ---------------
+
+@{LIST}      apple
+...          banana
+...          peach
+...          grape
+...          avocado
+...          kiwi
+...          some very long name of the fruit which exceeds the recommended line length
+```
+
+Please note that the item values of the iterable cannot be split using line continuation character. Therefore,
+it is not possible to divide the last item in the above example with the ellipses (`...`.)
+
+In this case, it is recommended (**is it???**) to define the item separately:
+
+```robot
+*** Variables ***
+${LONG_ITEM}    some very long name of the
+...             fruit which exceeds
+...             the recommended line length
+
+@{LIST}         apple    banana    peach
+...             grape    avocado    kiwi
+...             $(LONG_ITEM)
+```
+
+#### **Dictionaries**
+
+Dictionary variable in `Variables` section on a single line:
+
+```robot
+*** Variables ***
+&{DICT}    name=robot    age=14    ccupation=framework    version=latest    address=https://robotframework.org/    documentation=This text is so long it cannot be fit on one line
+```
+
+Dictionary variable in `Variables` section  split into several lines:
+
+```robot
+*** Variables ***
+&{DICT}    name=robot    age=14    occupation=framework
+...        version=latest    address=https://robotframework.org/
+...        documentation=This text is so long it cannot be fit on one line
+
+----------------- OR (??) ---------------
+
+&{DICT}    name=robot
+...        age=14
+...        occupation=framework
+...        version=latest
+...        address=https://robotframework.org/
+...        documentation=This text is so long it cannot be fit on one line
+```
+
+Similarly to the list items, a key-value pair of the dictionary cannot be split using the line continuation character.
+
+In this case, it is recommended (**is it???**) to define the value separately:
+
+```robot
+*** Variables ***
+${LONG_VALUE}    This text is so long
+...              it cannot be fit on one line
+
+&{DICT}          name=robot
+...              age=14
+...              occupation=framework
+...              version=latest
+...              address=https://robotframework.org/
+...              documentation=${LONG_VALUE}
+```
+
+&nbsp;
 
 TO DO:
 
-#### **Example - Example - Long Variable in Keywords**
+- ### **Long Variables in Test Keywords**
 
-#### **Example - xample - Long Variable in Test Cases**
+- ### **Long Variables in Test Cases**
