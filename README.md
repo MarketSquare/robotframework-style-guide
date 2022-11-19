@@ -42,11 +42,11 @@ Robot Framework Style Guide
 
 ### Line Continuations
 
-#### Variables
-- Line continuation in
-  - Scalar
-  - Dicts
-  - Lists
+Line continuation character in Robot Framework is ellipsis: (`...`).
+
+For more details, please refer to the [Robot Framework User Guide](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#dividing-data-to-several-rows).
+
+#### [Variables](Resources/line_continuations_variables.md)
 
 #### Arguments
 - Number of Arguments before moving to new line 3 to 5
@@ -54,6 +54,7 @@ Robot Framework Style Guide
 
 #### Chained Keywords
 - How many until new line?
+
 
 ### Naming
 - ... of (local vs. global) variables, KWs, TCs, tags, files (including extensions `.robot` vs. `.resource`)
