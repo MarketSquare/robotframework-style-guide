@@ -4,7 +4,8 @@ These are the recommended vertical space guidelines for .robot and .resource fil
 
 The guidelines of larger sections will supercede the guidelines of the subsections.
 
-Vertical white space is defined as any line that contains no characters.
+Veritcal White Space
+: Any line that contains no characters.
 
 Commented lines are not considered white space.
 
@@ -12,7 +13,15 @@ Commented lines are not considered white space.
 
 ## Spacing after the Section Header line
 
-There should be no space immediately after each section header line:
+There should be no space immediately after each section header line.
+
+## Spacing After Sections
+
+There should be 2 lines of white space after the last line of each section, except the last section of the file.
+
+The last section of a file should have 1 line of white space.
+
+### Example of Section Header and Section Spacing
 
 ```robot
     *** Comments ***
@@ -24,11 +33,11 @@ There should be no space immediately after each section header line:
 
 
     *** Variables ***
-    ${VARIABLE}
+    ${VARIABLE}    a variable
 
 
     *** Test Cases ***
-    Test
+    Test Case
 
 
     *** Tasks ***
@@ -40,12 +49,6 @@ There should be no space immediately after each section header line:
 
 ```
 
-## Spacing After Sections
-
-There should be 2 lines of white space after the last line of each section, except the last section of the file.
-
-The last section of a file should have 1 line of white space.
-
 ## Spacing After Keywords
 
 There should be 1 line of white space after the last line in a keyword code block.
@@ -54,7 +57,7 @@ There should be 1 line of white space after the last line in a keyword code bloc
 
 In most cases there should be no white space between keyword calls.
 
-### Spacing Between Code Blocks Within Keyword Calls
+## Spacing Between Code Blocks Within Keyword Calls
 
 Ocassionally keywords can be grouped in subsections of logical code blocks. In these instances it is acceptable to have 1 space between these code blocks, but no more than 1 space.
 
@@ -77,6 +80,8 @@ No lines of white space should exist between lines of test data in Templated Tes
 ## Spacing Between Settings Within The Settings Section
 
 It is recommended to allow 1 line of white space between common lines of settings.
+
+### Example of Settings Section Vertical Spacing
 
 ```robot
     *** Settings ***
@@ -112,7 +117,7 @@ There should be no lines of white space between variables within the Variables s
 
 ***
 
-### Example Robot File
+### Example Robot File Vertical White Spacing
 
 ```robot class:"numberLines"
 *** Comments ***
@@ -222,7 +227,7 @@ Test Teardown Keywords
 
 ***
 
-### Example Resource File
+### Example Resource File Vertical Spacing
 
 ```robot
 *** Settings ***
@@ -233,7 +238,7 @@ Library             Collections
 
 
 *** Variables ***
-${EXAMPLE_RESOURCE_SCALAR}      This is a really really really really really really really really really really really
+${EXAMPLE_RESOURCE_SCALAR}      This is a really really really really really really really
 ```
 
 ↕︎ No space between continuation lines
