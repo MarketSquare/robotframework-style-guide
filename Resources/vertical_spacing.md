@@ -4,7 +4,7 @@ These are the recommended vertical space guidelines for .robot and .resource fil
 
 The guidelines of larger sections will supercede the guidelines of the subsections.
 
-Veritcal White Space
+Vertical White Space
 : Any line that contains no characters.
 
 Commented lines are not considered white space.
