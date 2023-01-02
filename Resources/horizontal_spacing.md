@@ -21,18 +21,18 @@ Steps in a Keyword
 
 *Example with additional vertical lines for visual clearification: where n == 4 because the keyword also counts in the nesting.*
 
-```robot
+```
 *** Keywords ***
 My Nested Keyword
-|   FOR    ${i}    IN RANGE    10
-|   |   IF    $i % 2
-|   |   |   IF    $i > 5
-|   |   |   |   Log    Odd number over 5: ${i}
-|   |   |   END |
-|   |   END |   |
-|   END |   |   |
-|   |   |   |   |
-0   1   2   3   4
+|····FOR····${i}····IN RANGE····10
+|····|····IF····$i % 2
+|····|····|····IF····$i > 5
+|····|····|····|····Log····Odd number over 5: ${i}
+|····|····|····END··|
+|····|····END··|····|
+|····END··|····|····|
+|····|····|····|····|
+0    1    2    3    4
 ```
 
 - Separators in line
