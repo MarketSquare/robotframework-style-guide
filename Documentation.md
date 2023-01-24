@@ -29,7 +29,7 @@ Documentation is everything within the tag `[Documentation]` and is split up in 
 Example robotframework syntax
 ```
 Keyword With Arguments
-    [Documentation]  This keyword does things
+    [Documentation]  This keyword does things.
     ...
     ...    This keyword does things with arguments and returns the result.
     ...    It does it by using the first argument such that it converts that
