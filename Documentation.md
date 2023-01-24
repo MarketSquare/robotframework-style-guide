@@ -45,11 +45,11 @@ Keyword With Arguments
     ...
     ...    *Examples*
     ...
-    ...    ``Keyword With Arguments\ \ \ \ 3
-    ...      Keyword With Arguments\ \ \ \ 1\ \ \ \ Pear``
+    ...    | Keyword With Arguments\ \ \ \ 3
+    ...    | Keyword With Arguments\ \ \ \ 1\ \ \ \ Pear
     [Tags]    tag1  tag2
     [Arguments]    ${first argument}   ${second argument}=Apple
-    
+
         Some code
 ```
 
