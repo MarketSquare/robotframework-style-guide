@@ -32,10 +32,7 @@ For more details, please refer to the [Robot Framework User Guide](https://robot
 
 #### [Variables](Resources/line_continuations_variables.md)
 
-#### Arguments
-
-- Number of Arguments before moving to new line 3 to 5
-- Vertical listing
+#### [Arguments](Resources/line_continuations_arguments.md)
 
 #### Chained Keywords
 
