@@ -131,7 +131,7 @@ As per this example:
 ```robot class:"numberLines"
 *** Comments ***
 This is the comments section
-Robotidy moves this to the top, but it is listed as the last section in the user guide.
+
 
 *** Settings ***
 Documentation       This is documentation
