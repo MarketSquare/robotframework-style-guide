@@ -121,17 +121,17 @@ There should be no lines of white space between variables within the Variables s
 
 As per this example:
 
-- Two spaces between sections
-- One space between Tests/Tasks
-- No Space in the settings section of Tests/Tasks or Keywords
-- No space after settings section of Tests/Tasks or Keywords
-- No spaces between template Test/Task data lines
-- One Space Between Keywords
+① Two spaces between sections  
+② One space between Tests/Tasks  
+③ No Space in the settings section of Tests/Tasks or Keywords  
+④ No space after settings section of Tests/Tasks or Keywords  
+⑤ No spaces between template Test/Task data lines  
+⑥ One Space Between Keywords
 
 ```robot class:"numberLines"
 *** Comments ***
 This is the comments section
-
+①
 
 *** Settings ***
 Documentation       This is documentation
@@ -158,11 +158,11 @@ ${EXAMPLE_SCALAR_VARIABLE}          This is a suite scope scalar variable
 
 *** Test Cases ***
 An Example Test Case
-    [Documentation]    Test documentation
+③   [Documentation]    Test documentation
     [Tags]    standard-example-tag
     ${RESULT_LIST}    This Is A Complex Keyword With Sections    ${EXAMPLE_SCALAR_VARIABLE}
     Log To Console    ${RESULT_LIST}
-
+②
 A More Complex Test Case
     [Documentation]    Test documentation
     [Tags]    standard-example-tag
