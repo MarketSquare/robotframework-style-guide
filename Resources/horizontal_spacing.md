@@ -42,16 +42,11 @@ My Nested Keyword
   - [v] Separators in Statements (FOR, IF, WHILE)
   - [v] Separators between Variables and Keyword
   - Space between Vars and = ? (and whether to use "=" at all)
-  - Separators before Comments and after comment char
-  - Alignment/Separators Line Continuation
 - Indentation of Blocks
-  - [v] IF Blocks, TRY/CATCH, WHILE, FOR (END)
   - High Level Blocks = Required indention of Keywords within Test Cases
-- [v] Trailing Spaces? [#trailing-whitespace](https://robocop.readthedocs.io/en/stable/rules.html#trailing-whitespace)
-- [v] Spacing in SettingsHeaders
 
-- [v] Indentation to block (in some cases)
-- [v] Max. length of lines (_does belong here?_)
+## Line Continuation
+[look over there](./line_continuation.md)
 
 ## Trailing whitespaces
 
@@ -148,9 +143,22 @@ Example
     END
 ```
 
+[TRY/EXCEPT](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#toc-entry-389)
+
+```robot
+*** Test Cases ***
+First example
+    TRY
+        Some Keyword
+    EXCEPT    Error message
+        Error Handler Keyword
+    END
+    Keyword Outside
+```
+
 ## Comments
 
-In comments there should be a space between the `#` and the actual comment. ([Robocop: 0702](https://robocop.readthedocs.io/en/stable/rules.html#missing-space-after-comment))
+In comments there should be a space between the `#` and the actual comment. ([Robocop: #missing-space-after-comment](https://robocop.readthedocs.io/en/stable/rules.html#missing-space-after-comment))
 
 Comments should be avoided, write your code readable or use the `[Documentation]`.
 Only valid use of comments is for TODO's that should be fixed soon(tm).
