@@ -2,15 +2,16 @@
 
 The recommended file format is the [space separated format](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#space-separated-format), which means that spacing between tokens is at least **4 spaces**
 
+TODO ** Difference between Separation and Indentation ** 
+
 ## Separation
 
-* **Seperator** >= 4 spaces
+* **Separator** >= 4 spaces represented by `····` in the following examples. 
 
 ```robot
 *** Test Cases ***
 My Test
-    Keyword One <4s> argument1    argument2
-    # TODO add some visual clearification with some unicode character to show it is 4 spaces.
+    Keyword One····argument1····argument2
 ```
 
 ## Indentation
@@ -24,14 +25,14 @@ Steps in a Keyword
 ```
 *** Keywords ***
 My Nested Keyword
-|····FOR····${i}····IN RANGE····10
-|····|····IF····$i % 2
-|····|····|····IF····$i > 5
-|····|····|····|····Log····Odd number over 5: ${i}
-|····|····|····END··|
-|····|····END··|····|
-|····END··|····|····|
-|····|····|····|····|
+|····FOR    ${i}    IN RANGE    10
+|····|····IF    $i % 2
+|····|····|····IF   $i > 5
+|····|····|····|····Log    Odd number over 5: ${i}
+|····|····|····END  |
+|····|····END  |    |
+|····END  |    |    |
+|    |    |    |    |
 0    1    2    3    4
 ```
 
