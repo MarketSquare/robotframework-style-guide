@@ -119,16 +119,20 @@ There should be no lines of white space between variables within the Variables s
 
 ### Example Robot File Vertical White Spacing
 
+As per this example:
+
+- Two spaces between sections
+- One space between Tests/Tasks
+- No Space in the settings section of Tests/Tasks or Keywords
+- No space after settings section of Tests/Tasks or Keywords
+- No spaces between template Test/Task data lines
+- One Space Between Keywords
+
 ```robot class:"numberLines"
 *** Comments ***
 This is the comments section
 Robotidy moves this to the top, but it is listed as the last section in the user guide.
-```
 
-↑ Two spaces\
-↓ between sections
-
-```robot
 *** Settings ***
 Documentation       This is documentation
 ...                 robot -d Results -i example-tag Tests
@@ -158,25 +162,11 @@ An Example Test Case
     [Tags]    standard-example-tag
     ${RESULT_LIST}    This Is A Complex Keyword With Sections    ${EXAMPLE_SCALAR_VARIABLE}
     Log To Console    ${RESULT_LIST}
-```
 
-↕︎ One space between Tests/Tasks
-
-```robot
 A More Complex Test Case
-```
-
-↓ No Space in the settings section of Tests/Tasks or Keywords
-
-```robot
     [Documentation]    Test documentation
     [Tags]    standard-example-tag
     [Setup]    Set Test Variable    ${EXPECTED_LENGTH}    2
-```
-
-↑ No space after settings section of Tests/Tasks or Keywords
-
-```robot
     ${IS_LARGER_THAN_FOUR}    Create List
 
     # Adding vertical white space can be used to separate test code blocks
@@ -192,11 +182,6 @@ An Example Templated Test
     [Documentation]    Templated test documentation.
     [Tags]    templated-example-tag
     [Template]    This Is A Complex Keyword With Sections
-```
-
-↓ No spaces between template Test/Task data lines
-
-```robot
     ${EXAMPLE_DICTIONARY_VARIABLE}[This]
     ${EXAMPLE_DICTIONARY_VARIABLE}[suite]
     ${EXAMPLE_DICTIONARY_VARIABLE}[dictionary]
@@ -206,11 +191,7 @@ An Example Templated Test
 Suite Setup Keywords
     [Documentation]    A keyword for setting up a suite
     Log To Console    Setting up ${SUITE NAME} keywords
-```
 
-↕︎ One Space Between Keywords
-
-```robot
 Suite Teardown Keywords
     [Documentation]    A keyword for tearing down a suite
     Log To Console    Tearing down suite keywords
