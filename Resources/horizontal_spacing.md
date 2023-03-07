@@ -42,6 +42,7 @@ My Nested Keyword
   - High Level Blocks = Required indention of Keywords within Test Cases
 
 ## Line Continuation
+
 [look over there](./line_continuation.md)
 
 ## Line Length
@@ -52,7 +53,7 @@ A line length of 120 characters is recommended. [Robocop: #line-too-long](https:
 
 Trailing whitespaces should be avoided. [Robocop: #trailing-whitespace](https://robocop.readthedocs.io/en/stable/rules.html#trailing-whitespace)
 
-## Prepending whitespaces
+## Indentation in Settings Section
 
 Indentations should only be added when needed.
 
@@ -65,6 +66,8 @@ Resource     data.resource
 Variables    vars.robot
 ```
 
+## Indentation in Variables Section
+
 The `*** Variables ***` secion should always be left aligned without any indentation [Robocop: #variable-should-be-left-aligned](https://robocop.readthedocs.io/en/stable/rules.html#variable-should-be-left-aligned)
 
 ```robot
@@ -73,7 +76,7 @@ ${VAR}     my variable
 ${VAR2}    2
 ```
 
-## Spacing in SettingsHeaders
+## Separation in Settings Section
 
 Arguments to settings keywords should be aligned according to the longest keyword added with 4 spaces.
 
@@ -89,15 +92,25 @@ Resource      ${resourcedir}/myotherkeywords.resource
 Test Tags     mytag
 ```
 
-## Spacing in TestCases, Tasks and Keywords
-The Testcase, Task and Keyword names should always start at the first character on a line. Teststeps, Tasksteps and keywords called from within keyword should be indented.
+## Indentation in Test Cases, Tasks and Keywords
+
+The test case, task and keyword names should always start at the first character on a line. Test steps, task steps and keywords called from within keyword should be indented.
 
 ``` robot
 *** Test Cases ***
 My First Test Case
     Test Step One
     ${myvar}    Test Step Two That Returns A Value
+```
 
+``` robot
+*** Tasks ***
+My First Task
+    Task Step One
+    ${myvar}    Task Step Two That Returns A Value
+```
+
+``` robot
 *** Keywords ***
 Test Step One
     Some Keywords Being Called
@@ -109,9 +122,36 @@ Test Step Two That Returns A Value
 
 ## Block Indentation
 
-Blocks like `FOR`, `IF` or `WHILE` should always be indented such that the keywords that are run within the loop have to be indented from the lines that start and end the block. [Robocop: #bad-indent](https://robocop.readthedocs.io/en/stable/rules.html#bad-indent)
+Blocks like `IF`, `WHILE`, `FOR` and `TRY/EXCEPT` should always be indented such that the keywords that are run within the loop have to be indented from the lines that start and end the block. [Robocop: #bad-indent](https://robocop.readthedocs.io/en/stable/rules.html#bad-indent)
 
 (examples from the userguide)
+
+
+[IF/ELSE](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#toc-entry-384)
+
+```robot
+*** Test Cases ***
+Example
+    IF    $rc > 0
+        Positive keyword
+    ELSE IF    $rc < 0
+        Negative keyword
+    ELSE IF    $rc == 0
+        Zero keyword
+    ELSE
+        Fail    Unexpected rc: ${rc}
+    END
+```
+
+[WHILE](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#toc-entry-377)
+
+```robot
+*** Test Cases ***
+Limit as iteration count
+    WHILE    True    limit=100
+        Log    This is run 100 times.
+    END
+```
 
 [FOR](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#toc-entry-365)
 
@@ -128,32 +168,6 @@ Second Example
     FOR    ${var}    IN    one    two    ${3}    four    ${five}
     ...    kuusi    7    eight    nine    ${last}
         Log    ${var}
-    END
-```
-
-[WHILE](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#toc-entry-377)
-
-```robot
-*** Test Cases ***
-Limit as iteration count
-    WHILE    True    limit=100
-        Log    This is run 100 times.
-    END
-```
-
-[IF/ELSE](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#toc-entry-384)
-
-```robot
-*** Test Cases ***
-Example
-    IF    $rc > 0
-        Positive keyword
-    ELSE IF    $rc < 0
-        Negative keyword
-    ELSE IF    $rc == 0
-        Zero keyword
-    ELSE
-        Fail    Unexpected rc: ${rc}
     END
 ```
 
