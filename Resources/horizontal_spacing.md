@@ -2,11 +2,11 @@
 
 The recommended file format is the [space separated format](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#space-separated-format), which means that spacing between tokens is at least **4 spaces**
 
-TODO ** Difference between Separation and Indentation ** 
-
 ## Separation
 
 * **Separator** >= 4 spaces represented by `····` in the following examples. 
+
+Separation thus is the vertical space between tokens, where tokens are any keywords, variables, constructs.
 
 ```robot
 *** Test Cases ***
@@ -36,17 +36,17 @@ My Nested Keyword
 0    1    2    3    4
 ```
 
-- Separators in line
-  - [v] Separators between Keywords and Arguments
-  - [v] Separators between Arguments
-  - [v] Separators in Statements (FOR, IF, WHILE)
-  - [v] Separators between Variables and Keyword
+
   - Space between Vars and = ? (and whether to use "=" at all)
 - Indentation of Blocks
   - High Level Blocks = Required indention of Keywords within Test Cases
 
 ## Line Continuation
 [look over there](./line_continuation.md)
+
+## Line Length
+
+A line length of 120 characters is recommended. [Robocop: #line-too-long](https://robocop.readthedocs.io/en/stable/rules.html#line-too-long)
 
 ## Trailing whitespaces
 
@@ -73,10 +73,6 @@ ${VAR}     my variable
 ${VAR2}    2
 ```
 
-## Line Length
-
-A line length of 120 characters is recommended. [Robocop: #line-too-long](https://robocop.readthedocs.io/en/stable/rules.html#line-too-long)
-
 ## Spacing in SettingsHeaders
 
 Arguments to settings keywords should be aligned according to the longest keyword added with 4 spaces.
@@ -91,6 +87,24 @@ Library       Telnet    timeout=3s    newline=CLRF    encodeing=UTF-8
 Resource      ${resourcedir}/mykeywords.resource
 Resource      ${resourcedir}/myotherkeywords.resource
 Test Tags     mytag
+```
+
+## Spacing in TestCases, Tasks and Keywords
+The Testcase, Task and Keyword names should always start at the first character on a line. Teststeps, Tasksteps and keywords called from within keyword should be indented.
+
+``` robot
+*** Test Cases ***
+My First Test Case
+    Test Step One
+    ${myvar}    Test Step Two That Returns A Value
+
+*** Keywords ***
+Test Step One
+    Some Keywords Being Called
+    Log    Some Message
+
+Test Step Two That Returns A Value
+    RETURN  some string
 ```
 
 ## Block Indentation
