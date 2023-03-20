@@ -78,9 +78,9 @@ ${VAR2}    2
 
 ## Separation in Settings Section
 
-Arguments to settings keywords should be aligned according to the longest keyword added with 4 spaces.
+Arguments to settings should be aligned according to the longest keyword added with 4 spaces.
 
-Arguments to libraries should be aligned if there are multiple libraries that have arguments on importing.
+Arguments to settings should be aligned if there are multiple libraries that have arguments on importing.
 
 ```robot
 *** Settings ***
@@ -124,7 +124,7 @@ Test Step Two That Returns A Value
 
 Blocks like `IF`, `WHILE`, `FOR` and `TRY/EXCEPT` should always be indented such that the keywords that are run within the loop have to be indented from the lines that start and end the block. [Robocop: #bad-indent](https://robocop.readthedocs.io/en/stable/rules.html#bad-indent)
 
-(examples from the userguide)
+### Examples from the User Guide
 
 
 [IF/ELSE](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#toc-entry-384)
@@ -189,7 +189,7 @@ First example
 In comments there should be a space between the `#` and the actual comment. [Robocop: #missing-space-after-comment](https://robocop.readthedocs.io/en/stable/rules.html#missing-space-after-comment)
 
 Comments should be avoided, write your code readable or use the `[Documentation]`.
-Only valid use of comments is for TODO's that should be fixed soon(tm).
+The only valid use of comments is for TODO's that should be fixed soon.
 
 If you use comments:
 * Comments should be aligned with the block they belong to.
