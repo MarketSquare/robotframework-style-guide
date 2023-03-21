@@ -78,15 +78,32 @@ ${VAR2}    2
 
 ## Separation in Settings Section
 
-Arguments to settings should be aligned according to the longest setting added with 4 spaces.
+Arguments to settings should be aligned according to the longest setting added with 4 spaces. [Robotidy: #alignsettingssection](https://robotidy.readthedocs.io/en/stable/transformers/AlignSettingsSection.html#alignsettingssection)
 
-Arguments to settings should be aligned if there are multiple libraries that have arguments on importing.
+Arguments to Libraries should be aligned if there are multiple libraries that have arguments on importing.
+After the first argument to libraries all other arguments should either:
+* be separated with 4 spaces
+* be aligned in colums
+
+#### Separated with 4 spaces
 
 ```robot
 *** Settings ***
 Library       String
-Library       XML       use_lxml=False
-Library       Telnet    timeout=3s    newline=CLRF    encodeing=UTF-8
+Library       DataDriver    my_data_file.csv    dialect=UserDefined    delimiter=.  
+Library       Telnet    timeout=3s    newline=CLRF    encoding=UTF-8
+Resource      ${resourcedir}/mykeywords.resource
+Resource      ${resourcedir}/myotherkeywords.resource
+Test Tags     mytag
+```
+
+#### Aligned in columns
+
+```robot
+*** Settings ***
+Library       String
+Library       DataDriver    my_data_file.csv    dialect=UserDefined    delimiter=.  
+Library       Telnet        timeout=3s          newline=CLRF           encoding=UTF-8
 Resource      ${resourcedir}/mykeywords.resource
 Resource      ${resourcedir}/myotherkeywords.resource
 Test Tags     mytag
