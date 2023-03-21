@@ -1,6 +1,6 @@
 # Horizontal Spacing
 
-The recommended file format is the [space separated format](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#space-separated-format), which means that spacing between tokens is at least **4 spaces**
+Separation of tokens should be **4 spaces** as described in the the recommended file format: [space separated format](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#space-separated-format).
 
 ## Separation
 
