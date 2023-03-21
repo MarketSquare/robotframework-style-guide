@@ -78,7 +78,7 @@ ${VAR2}    2
 
 ## Separation in Settings Section
 
-Arguments to settings should be aligned according to the longest keyword added with 4 spaces.
+Arguments to settings should be aligned according to the longest setting added with 4 spaces.
 
 Arguments to settings should be aligned if there are multiple libraries that have arguments on importing.
 
