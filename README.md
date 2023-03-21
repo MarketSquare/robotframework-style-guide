@@ -3,34 +3,12 @@ Robot Framework Style Guide
 
 # Table of Content
 
-##Introduction
+## Introduction
 -Why we have style guide; readability, consistency etc. 
 
 ## Generic Coding Rules
 
-### Spacing (Line Break, Line Spacing, Indentation, Spaces)
-
-#### Horizontal Spacing  (part 1, Guido)
-
-- Type of Separators (\t space pipe?) No pipes!
-- The recommended spacing between tokens is 4 spaces. While other spacing is allowable down to 2 spaces, 4 spaces is a good value for readability.
-- Separators in line
-  - Separators between Keywords and Arguments
-  - Separators between Arguments
-  - Separators in Statements (FOR, IF, WHILE)
-  - Separators between Variables and Keyword
-  - Space between Vars and = ? (and whether to use "=" at all)
-  - Separators before Comments and after comment char
-  - Alignment/Separators Line Continuation
-- Indentation of Blocks
-  - IF Blocks, TRY/CATCH, WHILE, FOR (END)
-  - High Level Blocks = Required indention of Keywords within Test Cases
-- Trailing Spaces?
-  - [#trailing-whitespace](https://robocop.readthedocs.io/en/stable/rules.html#trailing-whitespace)
-- Spacing in SettingsHeaders
-- Indentation to block (in some cases)
-- Max. length of lines (_does belong here?_)
-
+#### [Horizontal Spacing](./Resources/horizontal_spacing.md)
 
 #### Vertical Spacing (Part 2, Kelby)
 - Spacing between Section Header and first Content
