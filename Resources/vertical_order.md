@@ -2,20 +2,27 @@
 
 Recommended approaches to ordering .robot and .resource files.
 
+Vertical order refers to the recommended order of settings, sections, variables, keywords.
+
 ## Section Order
 
 User Guide Reference: <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-data-sections>
 
 ```robot
+*** Comments ***
+
+
 *** Settings ***
+
 
 *** Variables ***
 
+
 *** Test Cases / Tasks ***
+
 
 *** Keywords ***
 
-*** Comments ***
 
 ```
 
@@ -26,25 +33,33 @@ User Guide Reference: <https://robotframework.org/robotframework/latest/RobotFra
 ```robot
 *** Settings ***
 Documentation
+Metadata
+
 Library    BuiltIn
 Library    3rd Party
 Library    Custom
 Resource
 Variables
-Metadata
+
 Suite Setup
 Suite Teardown
-Test/Task Tags
 Test/Task Setup
 Test/Task Teardown
-Test/Task Template
 Test/Task Timeout
+Test/Task Template
+
+Test/Task Tags
 ```
 
 ## Variables Section Order
 
+Simple variables (scalar, list, dictionary) variables should be listed first.
+Composite variables (variables composed of other variables) should be listed after simple variables.
+
 ```robot
 *** Variables ***
+${VARIABLE}  This is a Variable
+${COMPOSITE_VARIABLES}  ${VARIABLE} with other variables.
 
 ```
 
@@ -57,12 +72,12 @@ Test Case
     [Documentation]
     [Tags]
     [Setup]
-    [Teardown]
     [Template]
     [Timeout]
     Static Variable Assignments
     Keyword Calls
     Verification Keyword Call
+    [Teardown]
 ```
 
 ## Keyword Section Order
@@ -74,9 +89,23 @@ Keyword
     [Documentation]
     [Tags]
     [Arguments]
-    [Return]
-    [Teardown]
     [Timeout]
     Static Variable Assignments
     Keyword Calls
+    [Teardown]
+```
+
+## Keyword Order - Best Practices
+
+It is a good idea to put static variable assignments before keyword calls.
+
+```robot
+Keyword With Static Variables
+    [Arguments]    ${argument}
+    ${static_variable}    Set Variable  This is a static variable.
+    Set Local Variable    ${other_static_variable}   Another way to set a static variable.
+    ${dynamic_variable}    Catenate    SEPARATOR=${SPACE}    ${static_variable}    ${other_static_variable}    ${argument}
+    ${another_dynamic_variable}    Evaluate    $static_variable.upper()
+    Log To Console    ${dynamic_variable}
+    Should Not Be Equal    ${static_variable}    ${other_static_variable} 
 ```
