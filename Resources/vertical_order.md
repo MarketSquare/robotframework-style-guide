@@ -26,6 +26,8 @@ User Guide Reference: <https://robotframework.org/robotframework/latest/RobotFra
 
 ```
 
+---
+
 ## Settings Section Order
 
 User Guide Reference: <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#setting-section-1>
@@ -94,6 +96,8 @@ Keyword
     Keyword Calls
     [Teardown]
 ```
+
+---
 
 ## Keyword Order - Best Practices
 
