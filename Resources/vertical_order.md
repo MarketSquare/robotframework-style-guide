@@ -113,3 +113,7 @@ Keyword With Static Variables
     Log To Console    ${dynamic_variable}
     Should Not Be Equal    ${static_variable}    ${other_static_variable} 
 ```
+
+### Keyword Organization
+
+In order to make keyword search within a resource file easier alphabetize your keywords. Some IDEs have an outline side bar (i.e. VSCode) and by alphabetizing the keywords they appear in the side menu in the same way.
