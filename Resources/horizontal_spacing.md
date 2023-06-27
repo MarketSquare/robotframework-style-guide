@@ -144,7 +144,7 @@ Blocks like `IF`, `WHILE`, `FOR` and `TRY/EXCEPT` should always be indented such
 ### Examples from the User Guide
 
 
-[IF/ELSE](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#toc-entry-384)
+[IF/ELSE](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#if-else-syntax)
 
 ```robot
 *** Test Cases ***
@@ -160,7 +160,7 @@ Example
     END
 ```
 
-[WHILE](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#toc-entry-377)
+[WHILE](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#while-loops)
 
 ```robot
 *** Test Cases ***
@@ -170,7 +170,7 @@ Limit as iteration count
     END
 ```
 
-[FOR](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#toc-entry-365)
+[FOR](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#for-loops)
 
 ```robot
 *** Test Cases ***
@@ -188,7 +188,7 @@ Second Example
     END
 ```
 
-[TRY/EXCEPT](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#toc-entry-389)
+[TRY/EXCEPT](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#try-except-syntax)
 
 ```robot
 *** Test Cases ***
