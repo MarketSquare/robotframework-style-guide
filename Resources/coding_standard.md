@@ -153,7 +153,7 @@ The names of the test cases are written in **full** words, in the local language
 
 The names of tags are written in the local language **without diacritics** and with a moderate use of non-alphanumeric characters, e.g.
 
-```
+```robot
 [Tags]  do-not-execute
 ```
 
@@ -167,7 +167,7 @@ Test cases need not be documented. If we document them (🟢 *empty-documentatio
 
 We mention the author of the test in the comment before the documentation according to the following pattern.
 
-```
+```robot
 *** Test Cases ***
 
 Login - Empty Password
@@ -198,7 +198,7 @@ Variables are named in the local language **without diacritics** using only alph
 
 Arguments are written in the local language **without diacritics**, with all lower case letters, with words joined by underscores, e.g.
 
-```
+```robot
 [Arguments]  ${amount_to_withdraw}
 ```
 

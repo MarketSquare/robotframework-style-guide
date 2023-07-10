@@ -1,16 +1,19 @@
 # robotframework-style-guide
+
 Robot Framework Style Guide
 
-# Table of Content
+## Table of Content
 
 ## Introduction
--Why we have style guide; readability, consistency etc. 
+
+-Why we have style guide; readability, consistency etc.
 
 ## Generic Coding Rules
 
-#### [Horizontal Spacing](./Resources/horizontal_spacing.md)
+### [Horizontal Spacing](./Resources/horizontal_spacing.md)
 
 #### Vertical Spacing (Part 2, Kelby)
+
 - Spacing between Section Header and first Content
 - Spacing between Sections 2!
 - Spacing between Keywords Definitions
@@ -30,14 +33,16 @@ For more details, please refer to the [Robot Framework User Guide](https://robot
 #### [Variables](Resources/line_continuations_variables.md)
 
 #### Arguments
+
 - Number of Arguments before moving to new line 3 to 5
 - Vertical listing
 
 #### Chained Keywords
+
 - How many until new line?
 
-
 ### Naming
+
 - ... of (local vs. global) variables, KWs, TCs, tags, files (including extensions `.robot` vs. `.resource`)
 -Tags
 -Suite / Clobal > capital case
@@ -48,24 +53,27 @@ For more details, please refer to the [Robot Framework User Guide](https://robot
 - Length of names
 
 ### Documentation
+
 - What should be documented (global variables, KWs, TCs, TSs...?)
 
 ## Suite Level Rules
+
 - Max. number of lines in a file (this is not only for suite files)
 - Max. number of TCs in a file (except for when written using a template)
 
 ### Vertical Orders
+
 - Order of Sections
 - Order in Settings Section
 
 ### Test Level Rules
+
 - Max. number of KW calls in a test
 
 ## Resource Level Rules
+
 - Max. number of KW calls in a KW
 
-
-### Vertical Orders
-
+## Vertical Orders
 
 ## Variable Rules

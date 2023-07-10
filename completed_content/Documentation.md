@@ -1,11 +1,11 @@
-## Documentation
+# Documentation
 
-
-### Documentation of TestSuites
+## Documentation of TestSuites
 
 ### Documentation of Resources
 
 ### Documentation of Keywords
+
 The following guidelines are providing for different ways of reading the documentation.
 
 1. Online documentation created via LibDoc
@@ -27,7 +27,8 @@ Documentation is everything within the tag `[Documentation]` and is split up in 
 #### Arguments
 
 Example robotframework syntax
-```
+
+```robot
 Keyword With Arguments
     [Documentation]  This keyword does things.
     ...
@@ -52,4 +53,3 @@ Keyword With Arguments
 
         Some code
 ```
-
