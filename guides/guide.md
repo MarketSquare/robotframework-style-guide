@@ -882,7 +882,7 @@ Dictionary variable in `Variables` section on a single line:
 
 ```robot
 *** Variables ***
-&{LONG DICT}     name=robot    age=14    ccupation=framework    version=latest    address=https://robotframework.org/    documentation=This text is so long that it does not fit on one line
+&{LONG DICT}     name=robot    age=14    occupation=framework    version=latest    address=https://robotframework.org/    documentation=This text is so long that it does not fit on one line
 ```
 
 It is recommended to place all key-value pairs of a dictionary
