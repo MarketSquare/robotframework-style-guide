@@ -938,7 +938,7 @@ Definition on a single line:
 ```robot
 *** Keywords ***
 My Keyword
-    ${SCALAR}=    Set Variable    This sentence is really, really, really, really, really, really, really long
+    ${SCALAR}    Set Variable    This sentence is really, really, really, really, really, really, really long
 ```
 
 Definition split accross multiple lines (note use of built-in keyword [Catenate](http://robotframework.org/robotframework/latest/libraries/BuiltIn.html#Catenate.).
@@ -947,9 +947,9 @@ This is exception for scalars in the `Keywords` and `Test Cases` sections):
 ```robot
 *** Keywords ***
 My Keyword
-    ${SCALAR}=    Catenate    This sentence is really,
-    ...                       really, really, really, really,
-    ...                       really, really long
+    ${SCALAR}    Catenate    This sentence is really,
+    ...                      really, really, really, really,
+    ...                      really, really long
 ```
 
 ##### List Variable Creation
@@ -959,7 +959,7 @@ Definition on a single line:
 ```robot
 *** Keywords ***
 My Keyword
-    ${LIST}=    Create List    Mercury    Venus    Earth    Mars    Jupiter    Saturn    Uranus    Neptune
+    ${LIST}    Create List    Mercury    Venus    Earth    Mars    Jupiter    Saturn    Uranus    Neptune
 ```
 
 Definition on multiple lines:
@@ -967,14 +967,14 @@ Definition on multiple lines:
 ```robot
 *** Keywords ***
 My Keyword
-    ${LIST}=    Create List    Mercury
-    ...                        Venus
-    ...                        Earth
-    ...                        Mars
-    ...                        Jupiter
-    ...                        Saturn
-    ...                        Uranus
-    ...                        Neptune
+    ${LIST}    Create List    Mercury
+    ...                       Venus
+    ...                       Earth
+    ...                       Mars
+    ...                       Jupiter
+    ...                       Saturn
+    ...                       Uranus
+    ...                       Neptune
 ```
 
 ##### Dictionary Variable Creation
@@ -984,7 +984,7 @@ Definition on a single line:
 ```robot
 *** Keywords ***
 My Keyword
-    &{DICTIONARY}=    Create Dictionary    a=1    b=${2}    c=${3}    d="some long string"    e=${SOME_LIST}    f=pwoirpworuwruopwuroiewr
+    &{DICTIONARY}    Create Dictionary    a=1    b=${2}    c=${3}    d=some long string    e=${SOME LIST}    f=pwoirpworuwruopwuroiewr
 ```
 
 Definition split accross multiple lines:
@@ -1013,9 +1013,9 @@ Definition split on multiple lines:
 
 ```robot
 My Keyword With Multiple Variable Assignment
-    ${SCALAR1}    ${SCALAR2}    ${SCALAR3}=    Set Variable    First long item
-    ...                                                        Second long item
-    ...                                                        Third long item
+    ${SCALAR1}    ${SCALAR2}    ${SCALAR3}    Set Variable    First long item
+    ...                                                       Second long item
+    ...                                                       Third long item
 ```
 
 #### Test Cases or Tasks Section
