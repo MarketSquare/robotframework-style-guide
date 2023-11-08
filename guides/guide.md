@@ -70,7 +70,7 @@ Composite variables (variables composed of other variables) should be listed aft
 ```robot
 *** Variables ***
 ${VARIABLE}  This is a Variable
-${COMPOSITE_VARIABLES}  ${VARIABLE} with other variables.
+${COMPOSITE VARIABLES}  ${VARIABLE} with other variables.
 
 ```
 
@@ -117,12 +117,12 @@ It is a good idea to put static variable assignments before keyword calls.
 ```robot
 Keyword With Static Variables
     [Arguments]    ${argument}
-    ${static_variable}             Set Variable               This is a static variable.
-    Set Local Variable             ${other_static_variable}   Another way to set a static variable.
-    ${dynamic_variable}            Catenate                   SEPARATOR=${SPACE}    ${static_variable}                             ${other_static_variable}    ${argument}
-    ${another_dynamic_variable}    Evaluate                   $static_variable.upper()
-    Log To Console                 ${dynamic_variable}
-    Should Not Be Equal            ${static_variable}         ${other_static_variable} 
+    ${static variable}             Set Variable               This is a static variable.
+    Set Local Variable             ${other static variable}   Another way to set a static variable.
+    ${dynamic variable}            Catenate                   SEPARATOR=${SPACE}    ${static variable}                             ${other static variable}    ${argument}
+    ${another dynamic variable}    Evaluate                   $static variable.upper()
+    Log To Console                 ${dynamic variable}
+    Should Not Be Equal            ${static variable}         ${other static variable} 
 ```
 
 #### Keyword Organization
@@ -302,9 +302,9 @@ Test Tags           example-tag
 
 
 *** Variables ***
-${EXAMPLE_SCALAR_VARIABLE}          This is a suite scope scalar variable
-@{EXAMPLE_LIST_VARIABLE}            This    is    a    suite    scope    list    variable
-&{EXAMPLE_DICTIONARY_VARIABLE}      This=is a
+${EXAMPLE SCALAR VARIABLE}          This is a suite scope scalar variable
+@{EXAMPLE LIST VARIABLE}            This    is    a    suite    scope    list    variable
+&{EXAMPLE DICTIONARY VARIABLE}      This=is a
 ⑦ ...                               suite=scope
 ...                                 dictionary=variable
 ①
@@ -313,31 +313,31 @@ ${EXAMPLE_SCALAR_VARIABLE}          This is a suite scope scalar variable
 An Example Test Case
 ③   [Documentation]    Test documentation
     [Tags]    standard-example-tag
-④   ${RESULT_LIST}    This Is A Complex Keyword With Sections    ${EXAMPLE_SCALAR_VARIABLE}
-    Log To Console    ${RESULT_LIST}
+④   ${RESULT LIST}    This Is A Complex Keyword With Sections    ${EXAMPLE SCALAR VARIABLE}
+    Log To Console    ${RESULT LIST}
 ②
 A More Complex Test Case
 ③   [Documentation]    Test documentation
     [Tags]    standard-example-tag
-    [Setup]    Set Test Variable    ${EXPECTED_LENGTH}    2
-    ${IS_LARGER_THAN_FOUR}    Create List
+    [Setup]    Set Test Variable    ${EXPECTED LENGTH}    2
+    ${IS LARGER THAN FOUR}    Create List
 ⑧
     ## Adding vertical white space can be used to separate test code blocks
-    FOR    ${item}    IN    @{EXAMPLE_LIST_VARIABLE}
+    FOR    ${item}    IN    @{EXAMPLE LIST VARIABLE}
         IF    len($item)> 4
             This Is A Complex Keyword With Sections    ${item}
-            Append To List    ${IS_LARGER_THAN_FOUR}    ${item}
+            Append To List    ${IS LARGER THAN FOUR}    ${item}
         END
     END
-    Length Should Be    ${IS_LARGER_THAN_FOUR}    ${EXPECTED_LENGTH}
+    Length Should Be    ${IS LARGER THAN FOUR}    ${EXPECTED LENGTH}
 ②
 An Example Templated Test
 ③   [Documentation]    Templated test documentation.
     [Tags]    templated-example-tag
     [Template]    This Is A Complex Keyword With Sections
-⑤   ${EXAMPLE_DICTIONARY_VARIABLE}[This]
-    ${EXAMPLE_DICTIONARY_VARIABLE}[suite]
-    ${EXAMPLE_DICTIONARY_VARIABLE}[dictionary]
+⑤   ${EXAMPLE DICTIONARY VARIABLE}[This]
+    ${EXAMPLE DICTIONARY VARIABLE}[suite]
+    ${EXAMPLE DICTIONARY VARIABLE}[dictionary]
 ①
 
 *** Keywords ***
@@ -370,33 +370,33 @@ Library             Collections
 ①
 
 *** Variables ***
-${EXAMPLE_RESOURCE_SCALAR}      This is a really really really really really really really
+${EXAMPLE RESOURCE SCALAR}      This is a really really really really really really really
 ⑦ ...                          really really really really really really really long string.
 ①
 
 *** Keywords ***
 A Small Keyword
     [Documentation]    Small keyword documentation.
-    ${small_variable}    Catenate    SEPARATOR=    Such    a    small    keyword
-    RETURN    ${small_variable}
+    ${small variable}    Catenate    SEPARATOR=    Such    a    small    keyword
+    RETURN    ${small variable}
 ⑥
 This Is A Complex Keyword With Sections
 ③   [Documentation]    Complex keyword documentation.
-    [Arguments]    ${an_argument}
-    ${local_list}    Create List
-    ${get_small_value}    A Small Keyword
-    ${words}    Split String    ${get_small_value}
+    [Arguments]    ${an argument}
+    ${local list}    Create List
+    ${get small value}    A Small Keyword
+    ${words}    Split String    ${get small value}
     FOR    ${word}    IN    @{words}
         ${characters}    Split String To Characters    ${word}
 ⑧
         ## Insert a vertical whitespace here to separate logical sections within a keyword.
         FOR    ${character}    IN    @{characters}
             IF    $character in 'aeiou'
-                Append To List    ${local_list}    ${character}_${an_argument}
+                Append To List    ${local list}    ${character} ${an argument}
             END
         END
     END
-    RETURN    ${local_list}
+    RETURN    ${local list}
 ⑨
 ```
 
@@ -687,11 +687,11 @@ Optional arguments, due to having a default value, follow the same line continua
 ```robot
 *** Keywords ***
 Custom Keyword With Various Optional Arguments
-    [Arguments]    ${first_arg}=the first argument
-    ...            ${second_arg}=${123}
-    ...            ${third_arg}=${some_list}
-    ...            ${fourth_arg}=${some_dict}
-    ...            ${fifth_arg}=the last argument
+    [Arguments]    ${first arg}=the first argument
+    ...            ${second arg}=${123}
+    ...            ${third arg}=${some list}
+    ...            ${fourth arg}=${some dict}
+    ...            ${fifth arg}=the last argument
     Do Something
 ```
 
@@ -755,11 +755,11 @@ Test Case With Many Keywords And Arguments
     Use One More Keyword With Various Arguments
     ...    abc
     ...    123
-    ...    optional_arg=12345
-    ...    another_optional_arg=Hello
-    Use Keyword With "two" Embedded Arguments And "three" Required Arguments    first_arg
-    ...    second_arg
-    ...    third_arg
+    ...    optional arg=12345
+    ...    another optional arg=Hello
+    Use Keyword With "two" Embedded Arguments And "three" Required Arguments    first arg
+    ...    second arg
+    ...    third arg
     Do Final Steps
 ```
 
@@ -833,21 +833,21 @@ List variable in `Variables` section on a single line:
 
 ```robot
 *** Variables ***
-@{LONG_LIST}       apple    banana    peach    grape    avocado    kiwi    some very long name of the fruit which exceeds the recommended line length
+@{LONG LIST}       apple    banana    peach    grape    avocado    kiwi    some very long name of the fruit which exceeds the recommended line length
 ```
 
 It is recommended to either accomodate all items on a single line or to list each item on a new line:
 
 ```robot
 *** Variables ***
-@{SHORT_LIST}    apple    banana    peach    grape
+@{SHORT LIST}    apple    banana    peach    grape
 
-@{SHORT_LIST}    apple
+@{SHORT LIST}    apple
 ...              banana
 ...              peach
 ...              grape
 
-@{LONG_LIST}     apple
+@{LONG LIST}     apple
 ...              banana
 ...              peach
 ...              grape
@@ -863,7 +863,7 @@ In this case, it is recommended to define the item separately:
 
 ```robot
 *** Variables ***
-${LONG_ITEM}    some very long name of the
+${LONG ITEM}    some very long name of the
 ...             fruit which exceeds
 ...             the recommended line length
 
@@ -873,7 +873,7 @@ ${LONG_ITEM}    some very long name of the
 ...             grape
 ...             avocado
 ...             kiwi
-...             $(LONG_ITEM)
+...             $(LONG ITEM)
 ```
 
 ###### Dictionaries
@@ -882,7 +882,7 @@ Dictionary variable in `Variables` section on a single line:
 
 ```robot
 *** Variables ***
-&{LONG_DICT}     name=robot    age=14    ccupation=framework    version=latest    address=https://robotframework.org/    documentation=This text is so long that it does not fit on one line
+&{LONG DICT}     name=robot    age=14    ccupation=framework    version=latest    address=https://robotframework.org/    documentation=This text is so long that it does not fit on one line
 ```
 
 It is recommended to place all key-value pairs of a dictionary
@@ -890,14 +890,14 @@ either on a single line or each on a new line:
 
 ```robot
 *** Variables ***
-&{SHORT_DICT}    name=robot    age=14    ccupation=framework
+&{SHORT DICT}    name=robot    age=14    ccupation=framework
 
-&{SHORT_DICT}    name=robot
----              age=14
+&{SHORT DICT}    name=robot
+...              age=14
 ...              occupation=framework
 
-&{LONG_DICT}     name=robot
----              age=14
+&{LONG DICT}     name=robot
+...              age=14
 ...              occupation=framework
 ...              version=latest
 ...              address=https://robotframework.org/
@@ -908,7 +908,7 @@ Similarly to the list items, a key-value pair of the dictionary cannot be split 
 
 ```robot
 *** Variables ***
-${LONG_VALUE}    This text is so long
+${LONG VALUE}    This text is so long
 ...              it cannot be fit on one line
 
 &{DICT}          name=robot
@@ -916,7 +916,7 @@ ${LONG_VALUE}    This text is so long
 ...              occupation=framework
 ...              version=latest
 ...              address=https://robotframework.org/
-...              documentation=${LONG_VALUE}
+...              documentation=${LONG VALUE}
 ```
 
 #### Keywords Section
@@ -992,12 +992,12 @@ Definition split accross multiple lines:
 ```robot
 *** Keywords ***
 My Keyword
-    &{DICTIONARY}=    Create Dictionary    a=1
-    ...                                    b=${2}
-    ...                                    c=${3}
-    ...                                    d="some long string"
-    ...                                    e=${SOME_LIST}
-    ...                                    f=pwoirpworuwruopwuroiewr
+    &{DICTIONARY}    Create Dictionary    a=1
+    ...                                   b=${2}
+    ...                                   c=${3}
+    ...                                   d=some long string
+    ...                                   e=${SOME LIST}
+    ...                                   f=pwoirpworuwruopwuroiewr
 ```
 
 ##### Assigning Multiple Variables
