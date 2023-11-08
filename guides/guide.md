@@ -10,7 +10,7 @@ Vertical order refers to the recommended order of settings, sections, variables,
 
 ---
 
-### Section Order
+### Sections
 
 User Guide Reference: [Test Data Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-data-sections)
 
@@ -35,7 +35,7 @@ User Guide Reference: [Test Data Section](https://robotframework.org/robotframew
 
 ---
 
-### Settings Section Order
+### Settings
 
 User Guide Reference [Settings Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#setting-section-1)
 
@@ -62,7 +62,7 @@ Test/Task Tags
 
 ---
 
-### Variables Section Order
+### Variables
 
 Simple variables (scalar, list, dictionary) variables should be listed first.
 Composite variables (variables composed of other variables) should be listed after simple variables.
@@ -76,7 +76,7 @@ ${COMPOSITE_VARIABLES}  ${VARIABLE} with other variables.
 
 ---
 
-### Test Case / Task Section Order
+### Test Cases Or Tasks
 
 User Guide Reference [Test Case Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-case-section)
 
@@ -95,7 +95,7 @@ Test Case
 
 ---
 
-### Keyword Section Order
+### Keyword
 
 User Guide Reference [Keyword Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#keyword-section-1)
 
@@ -110,7 +110,7 @@ Keyword
     [Teardown]
 ```
 
-#### Keyword Order - Best Practices
+#### Keywords - Best Practices
 
 It is a good idea to put static variable assignments before keyword calls.
 
@@ -129,7 +129,7 @@ Keyword With Static Variables
 
 In order to make keyword search within a resource file easier alphabetize your keywords. Some IDEs have an outline side bar (i.e. VSCode) and by alphabetizing the keywords they appear in the side menu in the same way.
 
-## Vertical White Space
+## Vertical Spacing
 
 These are the recommended vertical space guidelines for `.robot` and `.resource` files.
 
@@ -406,7 +406,7 @@ This Is A Complex Keyword With Sections
 
 Separation of tokens should be **4 spaces** as described in the the recommended file format: [space separated format](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#space-separated-format).
 
-### Separation
+#### Separation
 
 - **Separator** >= 4 spaces represented by `····` in the following examples.
 
@@ -418,7 +418,7 @@ My Test
     Keyword One····argument1····argument2
 ```
 
-### Indentation
+#### Indentation
 
 - **Indentation** n time 4 spaces (where n is the level of indentation and n never exceeds 5, hence nesting depth cannot exceed 4 steps in a Keyword
 
@@ -460,7 +460,7 @@ My Nested Keyword
 
 ---
 
-### Settings Section
+### Settings
 
 #### Indentation Within Settings Section
 
@@ -511,7 +511,7 @@ Test Tags     mytag
 
 ---
 
-### Variables Section
+### Variables
 
 #### Indentation Within Variables Section
 
@@ -525,7 +525,7 @@ ${VAR2}    2
 
 ---
 
-### Test Cases, Tasks, Keywords Section
+### Test Cases or Tasks and Keywords
 
 #### Indentation Wthin Test Cases, Tasks, Keywords Section
 
@@ -641,7 +641,7 @@ Some Keyword
     Called Keyword Two    ## TODO fix weird behaviour.
 ```
 
-## Line Continuation For Arguments, Variables, Keywords, Test Cases / Tasks
+## Line Continuation
 
 ---
 
@@ -725,7 +725,7 @@ Get Capital Of "${country}" And First "${number}" Cities With Biggest Population
     Do Something
 ```
 
-#### Line Continuation For Arguments In Test Cases / Tasks
+#### Line Continuation For Arguments In Test Cases or Tasks
 
 In Test Cases, the first argument should be placed on the same line as the Keyword to which it belongs.
 Every other argument should be placed on a new continuation line and separated from the cantinuation character
@@ -778,7 +778,7 @@ Test Case With Compact Contents
 
 ---
 
-### Line Continuation For Variables
+### Variables
 
 It is reasonable to split a variable definition across multiple lines when it exceeds the recommended line length,
 or for the better readability of the code.
@@ -1018,6 +1018,6 @@ My Keyword With Multiple Variable Assignment
     ...                                                        Third long item
 ```
 
-#### Test Case / Tasks Section
+#### Test Cases or Tasks Section
 
 In test cases, line continuation follows the same guidelines, as in the `Keywords` section.
