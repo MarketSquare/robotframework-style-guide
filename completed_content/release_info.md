@@ -1,5 +1,9 @@
 # Release Information
 
+## about_style_guide.md Version 0.4b 2023-11-14
+
+Initial public release open for feedback.
+
 ## about_style_guide.md Version 0.3a 2023-07-09
 
 Updated Side bar and embed video
