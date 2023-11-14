@@ -853,7 +853,7 @@ It is recommended to either accomodate all items on a single line or to list eac
 ```
 
 Please note that the item values of the iterable cannot be split using line continuation character. Therefore,
-it is not possible to divide the last item in the above example with the ellipses (`...`.)
+it is not possible to divide the last item in the above example with the ellipses (`...`).
 
 In this case, it is recommended to define the item separately:
 
@@ -886,7 +886,7 @@ either on a single line or each on a new line:
 
 ```robot
 *** Variables ***
-&{SHORT DICT}    name=robot    age=14    ccupation=framework
+&{SHORT DICT}    name=robot    age=14    occupation=framework
 
 &{SHORT DICT}    name=robot
 ...              age=14
@@ -1001,6 +1001,7 @@ My Keyword
 Definition on a single line:
 
 ```robot
+*** Keywords ***
 My Keyword With Multiple Variable Assignment
     ${SCALAR1}    ${SCALAR2}    ${SCALAR3}=    Set Variable    First long item    Second long item    Third long item
 ```
@@ -1008,6 +1009,7 @@ My Keyword With Multiple Variable Assignment
 Definition split on multiple lines:
 
 ```robot
+*** Keywords ***
 My Keyword With Multiple Variable Assignment
     ${SCALAR1}    ${SCALAR2}    ${SCALAR3}    Set Variable    First long item
     ...                                                       Second long item
