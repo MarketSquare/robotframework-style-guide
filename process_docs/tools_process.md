@@ -6,7 +6,9 @@ Preferably VSCode.
 
 ## VSCode Extensions
 
-Use the markdownlint plugin to clean up markdown code, use default options.
+- Use the markdownlint (`davidanson.vscode-markdownlint`) plugin to clean up markdown code, use default options.
+- Use the spell right (`ban.spellright`) plugin for spell checking.
+    - `.vscode/settings.json` contains the settings for spell right.
 
 ## Repository
 
