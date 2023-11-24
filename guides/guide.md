@@ -146,7 +146,7 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
 
 ### Sections
 
-#### Spacing After The Section Header line
+#### Spacing After The Section Header Line
 
 > There should be no space immediately after each section header line.
 
@@ -191,7 +191,7 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
 
 > It is recommended to allow 1 line of white space between common lines of settings.
 
-##### Example of Settings Section Vertical Spacing
+##### Example Of Settings Section Vertical Spacing
 
 ```robot
     *** Settings ***
@@ -213,7 +213,7 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
     Test Tags
 ```  
 
-#### Spacing Between Settings Within A Test Case or Task or Keyword
+#### Spacing Between Settings Within A Test Case, Task Or Keyword
 
 > No lines of white space should exist between the settings of a Test Case or Task or Keyword.
 
@@ -229,11 +229,11 @@ There should be no lines of white space between variables within the Variables s
 
 ### Test Cases Or Tasks
 
-#### Spacing After Test Cases or Tasks
+#### Spacing After Test Cases Or Tasks
 
 > There should be 1 line of white space after each Test Case or Task.
 
-#### Spacing Between Code Blocks Within Test Cases or Tasks
+#### Spacing Between Code Blocks Within Test Cases Or Tasks
 
 > Occasionally Test Cases or Tasks can be grouped in subsections of logical code blocks. In these instances it is acceptable to have 1 space between these code blocks.
 
@@ -517,9 +517,9 @@ ${VAR2}    2
 
 ---
 
-### Test Cases or Tasks and Keywords
+### Test Cases, Tasks And Keywords
 
-#### Indentation Within Test Cases, Tasks, Keywords Section
+#### Indentation Within Test Cases, Tasks And Keywords Section
 
 The test case, task and keyword names should always start at the first character on a line. Test steps, task steps and keywords called from within keyword should be indented.
 
@@ -652,7 +652,7 @@ General guidelines:
 - No empty continuation lines between arguments (i.e., lines containing only `'...'`)
 - If many arguments are required, consider representing them as a list or a dictionary.
 
-#### Line Continuation For Arguments In Keyword definition
+#### Line Continuation For Arguments In Keyword Definition
 
 > In Keywords, the very first argument should be placed on the same line as `[Arguments]` setting. Every other argument
 should be placed on a new continuation line and aligned with the argument on the previous line.
@@ -717,7 +717,7 @@ Get Capital Of "${country}" And First "${number}" Cities With Biggest Population
     Do Something
 ```
 
-#### Line Continuation For Arguments In Test Cases or Tasks
+#### Line Continuation For Arguments In Test Cases Or Tasks
 
 In Test Cases, the first argument should be placed on the same line as the Keyword to which it belongs.
 Every other argument should be placed on a new continuation line and separated from the continuation character
@@ -1012,6 +1012,6 @@ My Keyword With Multiple Variable Assignment
     ...                                                       Third long item
 ```
 
-#### Test Cases or Tasks Section
+#### Test Cases Or Tasks Section
 
 In test cases, line continuation follows the same guidelines, as in the `Keywords` section.
