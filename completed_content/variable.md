@@ -3,11 +3,20 @@
 Recommended methods of using and naming variables
 
 Variables are the life blood of Robot Framework's flexibility.
+
 Understanding variable scope and proper naming are important for managing them in a project.
+
+This is also an area where you will need to understand the stakeholders involved in the project.
+
+If your project participants are less technical more syntactic sugar may be necessary than if a project is managed mostly by more technical roles (developers, devops, etc...) then more code-like syntax might be better.
+
+***In either case choose the style that best fits your project and keep to that decision.***
 
 ---
 
 ## Variable Scope And Casing
+
+Adhering to casing rules provides a convenient way of identifying the scope of a variable.
 
 - Variable Syntax from the user guide [variable-priorities-and-scopes](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#variable-priorities-and-scopes)
 
@@ -17,20 +26,55 @@ Understanding variable scope and proper naming are important for managing them i
   - Local variables use lower-case letters.
   - Keyword arguments use lower-case letters.
 
+### Deviation When Context Is More Important
+
+Sometimes variables should mimic the parameters of an API. This is especially true when interacting with REST API json bodies.
+
+You have a couple of choices:
+
+*Given this example body:*
+
+```json
+{
+  "firstName": "value",
+  "lastName": "value"
+}
+```
+
+*Then choose either:*
+
+```robot
+Create Json Body Option One
+  [Documentation]    This one is an 'OK' example.
+  [Arguments]    ${first_name}    ${last_name}
+  ${json_body}    Create Dictionary    firstName=${first_name}    lastName=${last_name}
+  RETURN    ${json_body}
+```
+
+*Or:*
+
+```robot
+Create Json Body Option Two
+  [Documentation]   This is also an 'OK' example.
+  [Arguments]    ${firstName}    ${lastName}
+  ${json_body}    Create Dictionary    firstName=${firstName}    lastName=${lastName}
+  RETURN    ${json_body}
+```
+
 ## Variable Assignment Syntax
 
 There are two favored syntaxes for assigning a value to a variable:
 
-1. By space only (cleaner and preferred method)
+1. By spacing only
 
     ```Robot
     *** Variables ***
-    ${VARIABLE}    Value
+    ${VARIABLE}    value
 
 
     *** Keywords ***
     Variable Keyword
-      ${variable}    Set Variable    Value
+      ${variable}    Set Variable    value
       Log To Console    ${variable}
     ```
 
@@ -38,16 +82,60 @@ There are two favored syntaxes for assigning a value to a variable:
 
     ```Robot
     *** Variables ***
-    ${VARIABLE} =  Value
+    ${VARIABLE} =    Value
 
 
     *** Keywords ***
     Variable Keyword
-      ${variable} =  Set Variable    Value
+      ${variable} =    Set Variable    Value
       Log To Console    ${variable}
     ```
 
-**_One is not any better than the other, but choose one for your project(s) and stick to it._**
+If you prefer option 2. then be sure that it is formatted `${var}·=····` where each `·` is a space.
+The reason for a space immediately after a variable is to make the variable more readable.
+
+```robot
+${var} =    Set Variable    good
+${var}=    Set Variable    not great, but seen commonly
+${var}  =    Set Variable    do not do this
+```
+
+## Spaces Within Variables
+
+Referring back to who will be involved with reading and understanding test cases, it may be best to use spaces instead of underscores.
+
+In the user guide there are existing examples of this syntax [built-in-variables](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#built-in-variables)
+
+Since Robot Framework treats spaces and underscores the same and in most cases not even necessary, each of these variable names are the same:
+
+```robot
+*** Variables ***
+${VARIABLE_ONE}    same
+${VARIABLE ONE}    same
+${VARIABLEONE}    same
+```
+
+### Using Variables With Spaces Within Python
+
+If you are using variables containing spaces within python code blocks (inline script, Evaluate keyword, python module, etc...) either:
+
+1. Replace the space with an underscore.
+
+    ```robot
+    Python Syntax With Underscores
+        [Argument]    ${argument variable}
+        ${upper value}    Evaluate    $argument_variable.upper()
+        RETURN    ${{upper_value.lower()}}
+    ```
+
+2. Remove the space.
+
+    ```robot
+    Python Syntax Without Underscores
+        [Argument]    ${argument variable}
+        ${upper value}    Evaluate    $argumentvariable.upper()
+        RETURN    ${{uppervalue.lower()}}
+    ```
 
 ## Variables Within Settings Section
 
@@ -157,7 +245,7 @@ Assume variables declared within json variable files to be at minimum SUITE in s
 
 ### Variables with Attributes
 
-<https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#extended-variable-assignment>
+[extended-variable-assignment](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#extended-variable-assignment)
 
 Attributes to variables can be any casing and usually follow the use case.
 The variable itself should follow the casing rules of its scope.
@@ -171,14 +259,22 @@ ${SUITE_VARIABLE.bar}    Set Variable    this is an suite attribute
 
 ### Embedded Variables
 
-<https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#variables-inside-variables>
+[variables-inside-variables](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#variables-inside-variables)
 
 Be careful to not embed more than one variable within a variable.
 Readability becomes an issue.
 
 ```robot
-${VARIABLE_${EMBED_VAR}}    Set Variable    good embedded variable
-${VARIABLE_${FOO}_${BAR}}    Set Variable    questionable variable
+Set Suite Variables
+    Set Suite Variable    ${EMBED_VAR}   embedded
+    Set Suite Variable    ${VARIABLE_${EMBED_VAR}}    good embedded variable
+    Set Suite Variable    ${FOO}    eggs
+    Set Suite Variable    ${BAR}    spam  
+    Set Suite Variable    ${VARIABLE_${FOO}_${BAR}}    questionable variable
+    Set Suite Variable    ${VAR_ONE}  one
+    Set Suite Variable    ${WITHIN_${VAR_ONE}}  two
+    Set Suite Variable    ${VARIBLES_${WITHIN_${VAR_ONE}}}  three
+    Set Suite Variable    ${INCEPTION_${VARIBLES_${WITHIN_${VAR_ONE}}}}  do not do this
 ```
 
 ### Commandline Variables
@@ -190,6 +286,8 @@ Commandline Variables and by extension variable files should be treated as Globa
 <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#environment-variables>
 
 Environment Variables should be treated as Global Variables. (i.e. Always UPPER_CASED)
+
+It is also possible that the variable casing needs to match how the variable has been declared outside of Robot Framework's context.
 
 ### Inline Python Evaluation
 
