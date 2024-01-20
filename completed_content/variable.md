@@ -20,11 +20,325 @@ Adhering to casing rules provides a convenient way of identifying the scope of a
 
 - Variable Syntax from the user guide [variable-priorities-and-scopes](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#variable-priorities-and-scopes)
 
-  - Global variables use upper-case letters.
-  - Suite variables use upper-case letters.
-  - Test variables use upper-case letters.
-  - Local variables use lower-case letters.
-  - Keyword arguments use lower-case letters.
+| Variable Scope                           | Syntax                         |
+|------------------------------------------|:----:|
+|**GLOBAL** variables use upper-case letters.  | \${UPPER CASED} or \${UPPER_CASED} |
+|**SUITE** variables use upper-case letters.   | \${UPPER CASED} or \${UPPER_CASED} |
+|**TEST** variables use upper-case letters.    | \${UPPER CASED} or \${UPPER_CASED} |
+|**LOCAL** variables use lower-case letters.   | \${lower cased} or \${lower_cased} |
+|Keyword arguments use lower-case letters. | \${lower cased} or \${lower_cased} |
+
+---
+
+## Variable Assignment Syntax
+
+There are two favored syntaxes for assigning a value to a variable:
+
+<Tabs>
+  <TabItem value="By Spacing Only" label="Style 1">
+
+```robot
+*** Variables ***
+${VARIABLE}    value
+
+
+*** Keywords ***
+Variable Keyword
+  ${variable}    Set Variable    value
+  Log To Console    ${variable}
+```
+
+  </TabItem>
+  <TabItem value="By '=' sign (syntactic sugar method)" label="Style 2">
+
+```robot
+*** Variables ***
+${VARIABLE} =    Value
+
+
+*** Keywords ***
+Variable Keyword
+  ${variable} =    Set Variable    Value
+  Log To Console    ${variable}
+```
+
+  </TabItem>
+</Tabs>
+If you prefer using equals ('=') signs, then be sure that it is formatted `${var}·=····` where each `·` is a space.
+The reason for a space immediately after a variable is to make the variable more readable.
+
+```robot
+Setting Variables
+    ${var}·=····Set Variable    good
+    ${var}=····Set Variable    not great, but seen commonly
+```
+
+```robot
+Never Like This Ever
+    [Documentation]    You will throw a syntax error!
+    ${var}··=····Set Variable    do not do this
+```
+
+## Spaces Within Variables
+
+Referring back to who will be involved with reading and understanding test cases, it may be best to use spaces instead of underscores.
+
+In the user guide there are existing examples of this syntax [built-in-variables](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#built-in-variables)
+
+Since Robot Framework treats spaces and underscores the same and in most cases not even necessary, each of these variable names are the same:
+
+```robot
+*** Variables ***
+${VARIABLE_ONE}    same
+${VARIABLE ONE}    same
+${VARIABLEONE}     same
+```
+
+### Using Variables With Spaces Within Python Code Blocks
+
+If you are using variables containing spaces within python code blocks (Inline script, Evaluate keyword, python module, etc...) replace the space with an underscore.
+
+  ```robot
+  Python Syntax With Underscores
+      [Argument]    ${argument variable}
+      ${upper value}    Evaluate    $argument_variable.upper()
+      RETURN    ${upper value}
+  ```
+
+  ```robot
+  Python Inline Syntax With Underscores
+      [Argument]    ${argument variable}
+      RETURN    ${{$argument_variable.upper()}}
+  ```
+
+## Variables Within The Variables Section
+
+Variables declared within the *** Variables *** section are Suite level in scope. (i.e. Always UPPER CASED, UPPER_CASED)
+
+Be sure to use the correct indicators of type of Variables:
+
+- Scalar ($)
+- List (@)
+- Dictionary (&)
+
+## Variables Within Settings Section
+
+Variables can be used within the settings section.
+
+They are useful for dynamic file paths and other values.
+
+Typically they are Suite or Global scoped variables. (i.e. Always UPPER CASED, UPPER_CASED)
+
+It is best to define them within a Variables section of a resource or robot file, and very easy to track down.
+
+Using a Variable that does not have a default value is a bad idea.
+
+<Tabs>
+  <TabItem value="With Spaces" style="style=1">
+
+```robot
+*** Settings ***
+Resource     ${RESOURCE PATH}/Resource.resource
+Variables    ${VARIABLES PATH}/Variables.yaml
+
+
+*** Variables ***
+${RELATIVE PATH}     ../../..
+${RESOURCE PATH}     ${RELATIVE PATH}/Resources
+${VARIABLES PATH}    ${RESOURCE PATH}/Variables
+```
+
+  </TabItem>
+    <TabItem value="With Underscores" style="style=2">
+  
+```robot
+*** Settings ***
+Resource     ${RESOURCE_PATH}/Resource.resource
+Variables    ${VARIABLES_PATH}/Variables.yaml
+
+
+*** Variables ***
+${RELATIVE_PATH}     ../../..
+${RESOURCE_PATH}     ${RELATIVE_PATH}/Resources
+${VARIABLES_PATH}    ${RESOURCE_PATH}/Variables
+```
+
+  </TabItem>
+</Tabs>  
+
+Consult Line Continuation in regards to how to handle the values of these types.
+
+Note you can build variables in this section from other variables the only rule is that the referenced variable has been assigned a value previously.
+
+*This will not work:*
+
+<Tabs>
+  <TabItem value="With Spaces" style="style 1">
+
+```robot
+*** Settings ***
+Resource     ${RESOURCE PATH}/Resource.resource
+Variables    ${VARIABLES PATH}/Variables.yaml
+
+
+*** Variables ***
+${RESOURCE PATH}     ${RELATIVE PATH}/Resources
+${VARIABLES PATH}    ${RESOURCE PATH}/Variables
+${RELATIVE PATH}     ../../..
+```
+
+  </TabItem>
+   <TabItem value="With Underscores" style="style 2">
+
+```robot
+*** Settings ***
+Resource     ${RESOURCE_PATH}/Resource.resource
+Variables    ${VARIABLES_PATH}/Variables.yaml
+
+
+*** Variables ***
+${RESOURCE_PATH}     ${RELATIVE_PATH}/Resources
+${VARIABLES_PATH}    ${RESOURCE_PATH}/Variables
+${RELATIVE_PATH}     ../../..
+```
+
+  </TabItem>
+</Tabs>  
+
+## Variables Within Keywords
+
+A majority of Keyword level variables will be local variables (i.e. lower cased, lower_cased)
+Case variables according to how they are assigned.
+
+<Tabs>
+  <TabItem value="With Spaces" style="style 1">
+
+```robot
+A Keyword of Variables
+    [Documentation]     This keyword will create these variables:
+    ...    ${TEST VARIABLE}
+    ...    ${SUITE VARIABLE}
+    ...    ${GLOBAL VARIABLE}
+    [Arguments]    ${this is an argument}
+    Set Local Variable    ${local variable}    use lower case
+    ${assigned local variable}    Set Variable    use lower case also
+    Set Test Variable    ${TEST VARIABLE}    USE UPPER CASE
+    Set Suite Variable    ${SUITE VARIABLE}    USE UPPER CASE
+    ${GLOBAL VARIABLE}    Create List    BETTER    USE    UPPER    CASE
+    Set Global Variable    ${GLOBAL VARIABLE}
+```
+
+  </TabItem>
+    <TabItem value="With Underscores" style="style 2">
+
+```robot
+A Keyword of Variables
+    [Documentation]     This keyword will create these variables:
+    ...    ${TEST_VARIABLE}
+    ...    ${SUITE_VARIABLE}
+    ...    ${GLOBAL_VARIABLE}
+    [Arguments]    ${this_is_an_argument}
+    Set Local Variable    ${local_variable}    use lower case
+    ${assigned_local_variable}    Set Variable    use lower case also
+    Set Test Variable    ${TEST_VARIABLE}    USE UPPER CASE
+    Set Suite Variable    ${SUITE_VARIABLE}    USE UPPER CASE
+    ${GLOBAL_VARIABLE}    Create List    BETTER    USE    UPPER    CASE
+    Set Global Variable    ${GLOBAL_VARIABLE}
+```
+
+  </TabItem>
+</Tabs>  
+
+Treat keyword arguments as local variables for naming purposes.
+
+If setting Suite and Global Variables within keywords from resource files.
+Setting Test Variables should be reserved to test cases if at all possible.
+In either case document non-local scoped variables.
+
+## Variables Within Tests/Tasks
+
+Variables assigned within a test/task should be treated as Test Variables in scope. (i.e. Always UPPER CASED, UPPER_CASED)
+
+The ocassional exception would be if there are FOR LOOP or WHILE LOOP structures then in those cases it would be acceptable.
+
+*FOR LOOP and WHILE LOOP structures should be avoided in test cases.*
+
+## Variable Files
+
+Assume variables declared within variable files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
+
+The examples given are using variables with spaces.
+
+### .resource Variable Files
+
+Assume variables declared within the Variable section of a resource files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
+
+```robot
+*** Variables ***
+${STRING VARIABLE}    Hello I am a resource variable.
+${INT VARIABLE}       ${42}
+@{LIST VARIABLE}      one    two
+&{DICT VARIABLE}      one=yksi    two=kaksi    with spaces=kolme
+```
+
+### Python Variable Files
+
+Assume variables declared within python variable files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
+
+Note that syntactically you cannot declare python variables with a space, but when you use them in Robot Framework you can use a space.
+
+Python libraries that declare variables are handled according to use case.
+
+```python
+STRING_VARIABLE = "Hello I am a python variable."
+INT_VARIABLE = 42
+LIST_VARIABLE = ["one", "two"]
+DICT_VARIABLE = {"one": "yksi", "two": "kaksi", "with spaces": "kolme"}
+```
+
+### Yaml Variable Files
+
+Assume variables declared within yaml variable files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
+
+When using a Yaml file you should follow Yaml Specifications for the key and value formatting.
+
+As with python variables when you use them in Robot Framework you can use a space.
+
+```yaml
+STRING VARIABLE: Hello I am a yaml variable.
+INT VARIABLE: 42
+LIST VARIABLE:
+  - one
+  - two
+DICT VARIABLE:
+  one: yksi
+  two: kaksi
+  with spaces: kolme
+```
+
+### Json Variable Files
+
+Assume variables declared within json variable files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
+
+```json
+{
+    "STRING VARIABLE": "Hello I am a json variable.",
+    "INTEGER VARIABLE": 42,
+    "LIST VARIABLE": [
+        "one",
+        "two"
+    ],
+    "DICT VARIABLE": {
+        "one": "yksi",
+        "two": "kaksi",
+        "with spaces": "kolme"
+    }
+}
+```
+
+---
+
+## Special Variable Cases
 
 ### Deviation When Context Is More Important
 
@@ -42,206 +356,30 @@ You have a couple of choices:
 ```
 
 *Then choose either:*
+<Tabs>
+  <TabItem value="Using normal variable syntax" style="style 1">
 
 ```robot
 Create Json Body Option One
   [Documentation]    This one is an 'OK' example.
-  [Arguments]    ${first_name}    ${last_name}
-  ${json_body}    Create Dictionary    firstName=${first_name}    lastName=${last_name}
-  RETURN    ${json_body}
+  [Arguments]    ${first name}    ${last name}
+  ${json body}    Create Dictionary    firstName=${first name}    lastName=${last name}
+  RETURN    ${json body}
 ```
 
-*Or:*
+  </TabItem>
+  <TabItem value="Matching variables to Json keys" style="style 2">
 
 ```robot
 Create Json Body Option Two
   [Documentation]   This is also an 'OK' example.
   [Arguments]    ${firstName}    ${lastName}
-  ${json_body}    Create Dictionary    firstName=${firstName}    lastName=${lastName}
-  RETURN    ${json_body}
+  ${json body}    Create Dictionary    firstName=${firstName}    lastName=${lastName}
+  RETURN    ${json body}
 ```
 
-## Variable Assignment Syntax
-
-There are two favored syntaxes for assigning a value to a variable:
-
-1. By spacing only
-
-    ```Robot
-    *** Variables ***
-    ${VARIABLE}    value
-
-
-    *** Keywords ***
-    Variable Keyword
-      ${variable}    Set Variable    value
-      Log To Console    ${variable}
-    ```
-
-2. By '=' sign (syntactic sugar method)
-
-    ```Robot
-    *** Variables ***
-    ${VARIABLE} =    Value
-
-
-    *** Keywords ***
-    Variable Keyword
-      ${variable} =    Set Variable    Value
-      Log To Console    ${variable}
-    ```
-
-If you prefer option 2. then be sure that it is formatted `${var}·=····` where each `·` is a space.
-The reason for a space immediately after a variable is to make the variable more readable.
-
-```robot
-${var} =    Set Variable    good
-${var}=    Set Variable    not great, but seen commonly
-${var}  =    Set Variable    do not do this
-```
-
-## Spaces Within Variables
-
-Referring back to who will be involved with reading and understanding test cases, it may be best to use spaces instead of underscores.
-
-In the user guide there are existing examples of this syntax [built-in-variables](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#built-in-variables)
-
-Since Robot Framework treats spaces and underscores the same and in most cases not even necessary, each of these variable names are the same:
-
-```robot
-*** Variables ***
-${VARIABLE_ONE}    same
-${VARIABLE ONE}    same
-${VARIABLEONE}    same
-```
-
-### Using Variables With Spaces Within Python
-
-If you are using variables containing spaces within python code blocks (inline script, Evaluate keyword, python module, etc...) either:
-
-1. Replace the space with an underscore.
-
-    ```robot
-    Python Syntax With Underscores
-        [Argument]    ${argument variable}
-        ${upper value}    Evaluate    $argument_variable.upper()
-        RETURN    ${{upper_value.lower()}}
-    ```
-
-2. Remove the space.
-
-    ```robot
-    Python Syntax Without Underscores
-        [Argument]    ${argument variable}
-        ${upper value}    Evaluate    $argumentvariable.upper()
-        RETURN    ${{uppervalue.lower()}}
-    ```
-
-## Variables Within Settings Section
-
-Variables can be used within the settings section.
-They are useful for dynamic file paths and other values.
-Typically they are Suite or Global scoped variables. (i.e. Always UPPER_CASED)
-It is best to define them within a Variables section of a resource or robot file, and very easy to track down.
-Using a Variable that does not have a default value is a bad idea.
-
-```robot
-*** Settings ***
-Resource     ${RESOURCE_PATH}/Resource.resource
-Variables    ${VARIABLES_PATH}/Variables.yaml
-
-
-*** Variables ***
-${RELATIVE_PATH}     ../../..
-${RESOURCE_PATH}     ${RELATIVE_PATH}/Resources
-${VARIABLES_PATH}    ${RESOURCE_PATH}/Variables
-```
-
-## Variables Within Variable Section
-
-Variables within a Variables section will at least be Suite or Global in scope. (i.e. Always UPPER_CASED)
-Be sure to use the correct indicators of type of Variables:
-
-- Scalar ($)
-- List (@)
-- Dictionary (&)
-
-Consult Line Continuation in regards to how to handle the values of these types.
-
-Note you can build variables in this section from other variables the only rule is that the referenced variable has been assigned a value previously.
-
-*This will not work:*
-
-```robot
-*** Settings ***
-Resource     ${RESOURCE_PATH}/Resource.resource
-Variables    ${VARIABLES_PATH}/Variables.yaml
-
-
-*** Variables ***
-${RESOURCE_PATH}     ${RELATIVE_PATH}/Resources
-${VARIABLES_PATH}    ${RESOURCE_PATH}/Variables
-${RELATIVE_PATH}     ../../..
-```
-
-## Variables Within Keywords
-
-A majority of Keyword level variables will be local variables (i.e. lower_cased)
-Case variables according to how they are assigned.
-
-```robot
-A Keyword of Variables
-    [Documentation]     This keyword will create these variables:
-    ...    ${TEST_VARIABLE}
-    ...    ${SUITE_VARIABLE}
-    ...    ${GLOBAL_VARIABLE}
-    Set Local Variable    ${local_variable}    use lower case
-    ${assigned_local_variable}    Set Variable    use lower case also
-    Set Test Variable    ${TEST_VARIABLE}    USE UPPER CASE
-    Set Suite Variable    ${SUITE_VARIABLE}    USE UPPER CASE
-    ${GLOBAL_VARIABLE}    Create List    BETTER    USE    UPPER    CASE
-    Set Global Variable    ${GLOBAL_VARIABLE}
-```
-
-Treat keyword arguments as local variables.
-
-If setting Suite and Global Variables within keywords from resource files.
-Setting Test Variables should be reserved to test cases if at all possible.
-In either case document non-local sccoped variables.
-
-## Variables Within Tests/Tasks
-
-Variables assigned within a test/task should be treated as Test Variables in scope. (i.e. Always UPPER_CASED)
-
-The ocassional exception would be if there are FOR LOOP or WHILE LOOP structures then in those cases it would be acceptable.
-
-*FOR LOOP and WHILE LOOP structures should be avoided in test cases.*
-
-## Variable Files
-
-Assume variables declared within variable files to be at minimum SUITE in scope. (i.e. Always UPPER_CASED)
-
-### .resource Variable Files
-
-Assume variables declared within the Variable section of a resource files to be at minimum SUITE in scope. (i.e. Always UPPER_CASED)
-
-### Python Variable Files
-
-Assume variables declared within python variable files to be at minimum SUITE in scope. (i.e. Always UPPER_CASED)
-
-Python libraries that declare variables are handled according to use case.
-
-### Yaml Variable Files
-
-Assume variables declared within yaml variable files to be at minimum SUITE in scope. (i.e. Always UPPER_CASED)
-
-### Json Variable Files
-
-Assume variables declared within json variable files to be at minimum SUITE in scope. (i.e. Always UPPER_CASED)
-
----
-
-## Special Variable Cases
+  </TabItem>
+</Tabs>  
 
 ### Variables with Attributes
 
@@ -251,10 +389,11 @@ Attributes to variables can be any casing and usually follow the use case.
 The variable itself should follow the casing rules of its scope.
 
 ```robot
-${local_variable.name}    Set Variable    this is a variable
-${local_variable.foo}    Set Variable   this is an local attribute
-Set Suite Variable    ${SUITE_VARIABLE.name}    this is a suite variable
-${SUITE_VARIABLE.bar}    Set Variable    this is an suite attribute
+Attribute Variables
+    ${local variable.name}    Set Variable              this is a variable
+    ${local variable.foo}     Set Variable              this is an local attribute
+    Set Suite Variable        ${SUITE VARIABLE.name}    this is a suite variable
+    ${SUITE VARIABLE.bar}     Set Variable              this is an suite attribute
 ```
 
 ### Embedded Variables
@@ -262,7 +401,30 @@ ${SUITE_VARIABLE.bar}    Set Variable    this is an suite attribute
 [variables-inside-variables](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#variables-inside-variables)
 
 Be careful to not embed more than one variable within a variable.
-Readability becomes an issue.
+
+Keep it simple.
+
+Readability becomes an issue with more than one embedded variable.
+
+
+<Tabs>
+  <TabItem  value="With Spaces" style="style 1">
+
+```robot
+Set Suite Variables
+    Set Suite Variable    ${EMBED VAR}   embedded
+    Set Suite Variable    ${VARIABLE ${EMBED VAR}}    good embedded variable
+    Set Suite Variable    ${FOO}    eggs
+    Set Suite Variable    ${BAR}    spam  
+    Set Suite Variable    ${VARIABLE ${FOO} ${BAR}}    questionable variable
+    Set Suite Variable    ${VAR}  one
+    Set Suite Variable    ${WITHIN ${VAR}}  two
+    Set Suite Variable    ${VARIABLES ${WITHIN ${VAR}}}  three
+    Set Suite Variable    ${INCEPTION ${VARIABLES ${WITHIN ${VAR}}}}  do not do this
+```
+
+  </TabItem>
+  <TabItem  value="With Underscores" style="style 2">
 
 ```robot
 Set Suite Variables
@@ -271,24 +433,23 @@ Set Suite Variables
     Set Suite Variable    ${FOO}    eggs
     Set Suite Variable    ${BAR}    spam  
     Set Suite Variable    ${VARIABLE_${FOO}_${BAR}}    questionable variable
-    Set Suite Variable    ${VAR_ONE}  one
-    Set Suite Variable    ${WITHIN_${VAR_ONE}}  two
-    Set Suite Variable    ${VARIBLES_${WITHIN_${VAR_ONE}}}  three
-    Set Suite Variable    ${INCEPTION_${VARIBLES_${WITHIN_${VAR_ONE}}}}  do not do this
+    Set Suite Variable    ${VAR}  one
+    Set Suite Variable    ${WITHIN_${VAR}}  two
+    Set Suite Variable    ${VARIABLES_${WITHIN_${VAR}}}  three
+    Set Suite Variable    ${INCEPTION_${VARIABLES_${WITHIN_${VAR}}}}  do not do this
 ```
+
+  </TabItem>
+</Tabs>  
 
 ### Commandline Variables
 
-Commandline Variables and by extension variable files should be treated as Global Variables. (i.e. Always UPPER_CASED)
+Commandline Variables and by extension variable files should be treated as Global Variables. (i.e. Always UPPER CASED, UPPER_CASED)
 
 ### Environment Variables
 
 <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#environment-variables>
 
-Environment Variables should be treated as Global Variables. (i.e. Always UPPER_CASED)
+Environment Variables should be treated as Global Variables. (i.e. Always UPPER CASED, UPPER_CASED)
 
 It is also possible that the variable casing needs to match how the variable has been declared outside of Robot Framework's context.
-
-### Inline Python Evaluation
-
-<https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#inline-python-evaluation-1>
