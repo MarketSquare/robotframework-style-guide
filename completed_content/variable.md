@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Variables
 
 Recommended methods of using and naming variables
@@ -134,7 +137,7 @@ It is best to define them within a Variables section of a resource or robot file
 Using a Variable that does not have a default value is a bad idea.
 
 <Tabs>
-  <TabItem value="With Spaces" style="style=1">
+  <TabItem value="With Spaces" label="style 1">
 
 ```robot
 *** Settings ***
@@ -149,8 +152,8 @@ ${VARIABLES PATH}    ${RESOURCE PATH}/Variables
 ```
 
   </TabItem>
-    <TabItem value="With Underscores" style="style=2">
-  
+  <TabItem value="With Underscores" label="style 2">
+
 ```robot
 *** Settings ***
 Resource     ${RESOURCE_PATH}/Resource.resource
@@ -173,7 +176,7 @@ Note you can build variables in this section from other variables the only rule 
 *This will not work:*
 
 <Tabs>
-  <TabItem value="With Spaces" style="style 1">
+  <TabItem value="With Spaces" label="style 1">
 
 ```robot
 *** Settings ***
@@ -188,7 +191,7 @@ ${RELATIVE PATH}     ../../..
 ```
 
   </TabItem>
-   <TabItem value="With Underscores" style="style 2">
+   <TabItem value="With Underscores" label="style 2">
 
 ```robot
 *** Settings ***
@@ -211,7 +214,7 @@ A majority of Keyword level variables will be local variables (i.e. lower cased,
 Case variables according to how they are assigned.
 
 <Tabs>
-  <TabItem value="With Spaces" style="style 1">
+  <TabItem value="With Spaces" label="style 1">
 
 ```robot
 A Keyword of Variables
@@ -229,7 +232,7 @@ A Keyword of Variables
 ```
 
   </TabItem>
-    <TabItem value="With Underscores" style="style 2">
+    <TabItem value="With Underscores" label="style 2">
 
 ```robot
 A Keyword of Variables
@@ -357,7 +360,7 @@ You have a couple of choices:
 
 *Then choose either:*
 <Tabs>
-  <TabItem value="Using normal variable syntax" style="style 1">
+  <TabItem value="Using normal variable syntax" label="style 1">
 
 ```robot
 Create Json Body Option One
@@ -368,7 +371,7 @@ Create Json Body Option One
 ```
 
   </TabItem>
-  <TabItem value="Matching variables to Json keys" style="style 2">
+  <TabItem value="Matching variables to Json keys" label="style 2">
 
 ```robot
 Create Json Body Option Two
@@ -408,7 +411,7 @@ Readability becomes an issue with more than one embedded variable.
 
 
 <Tabs>
-  <TabItem  value="With Spaces" style="style 1">
+  <TabItem  value="With Spaces" label="style 1">
 
 ```robot
 Set Suite Variables
@@ -424,7 +427,7 @@ Set Suite Variables
 ```
 
   </TabItem>
-  <TabItem  value="With Underscores" style="style 2">
+  <TabItem  value="With Underscores" label="style 2">
 
 ```robot
 Set Suite Variables
