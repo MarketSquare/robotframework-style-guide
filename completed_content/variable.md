@@ -230,12 +230,12 @@ A Keyword of Variables
     ...    ${SUITE VARIABLE}
     ...    ${GLOBAL VARIABLE}
     [Arguments]    ${this is an argument}
-    Set Local Variable    ${local variable}    use lower case
-    ${assigned local variable}    Set Variable    use lower case also
-    Set Test Variable    ${TEST VARIABLE}    USE UPPER CASE
-    Set Suite Variable    ${SUITE VARIABLE}    USE UPPER CASE
-    ${GLOBAL VARIABLE}    Create List    BETTER    USE    UPPER    CASE
-    Set Global Variable    ${GLOBAL VARIABLE}
+    Set Local Variable            ${local variable}    use lower case
+    ${assigned local variable}    Set Variable         use lower case also
+    Set Test Variable             ${TEST VARIABLE}     USE UPPER CASE
+    Set Suite Variable            ${SUITE VARIABLE}    USE UPPER CASE
+    ${GLOBAL VARIABLE}            Create List          BETTER    USE    UPPER    CASE
+    Set Global Variable           ${GLOBAL VARIABLE}
 ```
 
   </TabItem>
@@ -249,12 +249,12 @@ A Keyword of Variables
     ...    ${SUITE_VARIABLE}
     ...    ${GLOBAL_VARIABLE}
     [Arguments]    ${this_is_an_argument}
-    Set Local Variable    ${local_variable}    use lower case
-    ${assigned_local_variable}    Set Variable    use lower case also
-    Set Test Variable    ${TEST_VARIABLE}    USE UPPER CASE
-    Set Suite Variable    ${SUITE_VARIABLE}    USE UPPER CASE
-    ${GLOBAL_VARIABLE}    Create List    BETTER    USE    UPPER    CASE
-    Set Global Variable    ${GLOBAL_VARIABLE}
+    Set Local Variable            ${local_variable}    use lower case
+    ${assigned_local_variable}    Set Variable         use lower case also
+    Set Test Variable             ${TEST_VARIABLE}     USE UPPER CASE
+    Set Suite Variable            ${SUITE_VARIABLE}    USE UPPER CASE
+    ${GLOBAL_VARIABLE}            Create List          BETTER    USE    UPPER    CASE
+    Set Global Variable           ${GLOBAL_VARIABLE}
 ```
 
   </TabItem>
@@ -431,7 +431,7 @@ Set Suite Variables
     Set Suite Variable    ${FOO}    eggs
     Set Suite Variable    ${BAR}    spam  
     Set Suite Variable    ${VARIABLE ${FOO} ${BAR}}    questionable variable
-    Set Suite Variable    ${VAR}  one
+    Set Suite Variable    ${VAR}    one
     Set Suite Variable    ${WITHIN ${VAR}}  two
     Set Suite Variable    ${VARIABLES ${WITHIN ${VAR}}}  three
     Set Suite Variable    ${INCEPTION ${VARIABLES ${WITHIN ${VAR}}}}  do not do this
@@ -448,7 +448,7 @@ Set Suite Variables
     Set Suite Variable    ${FOO}    eggs
     Set Suite Variable    ${BAR}    spam  
     Set Suite Variable    ${VARIABLE_${FOO}_${BAR}}    questionable variable
-    Set Suite Variable    ${VAR}  one
+    Set Suite Variable    ${VAR}    one
     Set Suite Variable    ${WITHIN_${VAR}}  two
     Set Suite Variable    ${VARIABLES_${WITHIN_${VAR}}}  three
     Set Suite Variable    ${INCEPTION_${VARIABLES_${WITHIN_${VAR}}}}  do not do this
