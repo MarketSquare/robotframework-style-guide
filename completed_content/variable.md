@@ -175,7 +175,9 @@ ${VARIABLES_PATH}    ${RESOURCE_PATH}/Variables
 
 Consult Line Continuation in regards to how to handle the values of these types.
 
-Note you can build variables in this section from other variables the only rule is that the referenced variable has been assigned a value previously.
+:::note 
+You can build variables in the `Settings` or `Variable` sections from other variables the only rule is that the referenced variable has been assigned a value previously.
+:::
 
 *This will not work:*
 
