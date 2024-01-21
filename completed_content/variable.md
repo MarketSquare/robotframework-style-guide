@@ -23,13 +23,13 @@ Adhering to casing rules provides a convenient way of identifying the scope of a
 
 - Variable Syntax from the user guide [variable-priorities-and-scopes](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#variable-priorities-and-scopes)
 
-| Variable Scope                           | Syntax                         |
-|------------------------------------------|:----:|
-|**GLOBAL** variables use upper-case letters.  | \${UPPER CASED} or \${UPPER_CASED} |
-|**SUITE** variables use upper-case letters.   | \${UPPER CASED} or \${UPPER_CASED} |
-|**TEST** variables use upper-case letters.    | \${UPPER CASED} or \${UPPER_CASED} |
-|**LOCAL** variables use lower-case letters.   | \${lower cased} or \${lower_cased} |
-|Keyword arguments use lower-case letters. | \${lower cased} or \${lower_cased} |
+| Variable Scope                               | Syntax                               |
+|----------------------------------------------|:------------------------------------:|
+|**GLOBAL** variables use upper-case letters.  | `${UPPER CASED}` or `${UPPER_CASED}` |
+|**SUITE** variables use upper-case letters.   | `${UPPER CASED}` or `${UPPER_CASED}` |
+|**TEST** variables use upper-case letters.    | `${UPPER CASED}` or `${UPPER_CASED}` |
+|**LOCAL** variables use lower-case letters.   | `${lower cased}` or `${lower_cased}` |
+|Keyword arguments use lower-case letters.     | `${lower cased}` or `${lower_cased}` |
 
 ---
 
