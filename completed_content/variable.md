@@ -71,12 +71,14 @@ If you prefer using equals ('=') signs, then be sure that it is formatted `${var
 The reason for a space immediately after a variable is to make the variable more readable.
 
 ```robot
+*** Keywords ***
 Setting Variables
     ${var}·=····Set Variable    good
     ${var}=····Set Variable    not great, but seen commonly
 ```
 
 ```robot
+*** Keywords ***
 Never Like This Ever
     [Documentation]    You will throw a syntax error!
     ${var}··=····Set Variable    do not do this
@@ -102,6 +104,7 @@ ${VARIABLEONE}     same
 If you are using variables containing spaces within python code blocks (Inline script, Evaluate keyword, python module, etc...) replace the space with an underscore.
 
   ```robot
+  *** Keywords ***
   Python Syntax With Underscores
       [Argument]    ${argument variable}
       ${upper value}    Evaluate    $argument_variable.upper()
@@ -109,6 +112,7 @@ If you are using variables containing spaces within python code blocks (Inline s
   ```
 
   ```robot
+  *** Keywords ***
   Python Inline Syntax With Underscores
       [Argument]    ${argument variable}
       RETURN    ${{$argument_variable.upper()}}
@@ -217,6 +221,7 @@ Case variables according to how they are assigned.
   <TabItem value="With Spaces" label="style 1">
 
 ```robot
+*** Keywords ***
 A Keyword of Variables
     [Documentation]     This keyword will create these variables:
     ...    ${TEST VARIABLE}
@@ -235,6 +240,7 @@ A Keyword of Variables
     <TabItem value="With Underscores" label="style 2">
 
 ```robot
+*** Keywords ***
 A Keyword of Variables
     [Documentation]     This keyword will create these variables:
     ...    ${TEST_VARIABLE}
@@ -363,6 +369,7 @@ You have a couple of choices:
   <TabItem value="Using normal variable syntax" label="style 1">
 
 ```robot
+*** Keywords ***
 Create Json Body Option One
   [Documentation]    This one is an 'OK' example.
   [Arguments]    ${first name}    ${last name}
@@ -392,6 +399,7 @@ Attributes to variables can be any casing and usually follow the use case.
 The variable itself should follow the casing rules of its scope.
 
 ```robot
+*** Keywords ***
 Attribute Variables
     ${local variable.name}    Set Variable              this is a variable
     ${local variable.foo}     Set Variable              this is an local attribute
@@ -414,6 +422,7 @@ Readability becomes an issue with more than one embedded variable.
   <TabItem  value="With Spaces" label="style 1">
 
 ```robot
+*** Keywords ***
 Set Suite Variables
     Set Suite Variable    ${EMBED VAR}   embedded
     Set Suite Variable    ${VARIABLE ${EMBED VAR}}    good embedded variable
@@ -430,6 +439,7 @@ Set Suite Variables
   <TabItem  value="With Underscores" label="style 2">
 
 ```robot
+*** Keywords ***
 Set Suite Variables
     Set Suite Variable    ${EMBED_VAR}   embedded
     Set Suite Variable    ${VARIABLE_${EMBED_VAR}}    good embedded variable
