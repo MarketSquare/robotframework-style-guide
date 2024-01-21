@@ -383,6 +383,7 @@ Create Json Body Option One
   <TabItem value="Matching variables to Json keys" label="style 2">
 
 ```robot
+*** Keywords ***
 Create Json Body Option Two
   [Documentation]   This is also an 'OK' example.
   [Arguments]    ${firstName}    ${lastName}
