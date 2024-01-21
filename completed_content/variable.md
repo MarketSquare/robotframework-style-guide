@@ -216,8 +216,8 @@ ${RELATIVE_PATH}     ../../..
 
 ## Variables Within Keywords
 
-A majority of Keyword level variables will be local variables (i.e. lower cased, lower_cased)
-Case variables according to how they are assigned.
+A majority of Keyword level variables will be local variables (i.e. lower cased, lower_cased).
+But other scopes can be assigned using `BuildIn keywords`, make sure you case variables according to how they are assigned.
 
 <Tabs>
   <TabItem value="With Spaces" label="style 1">
