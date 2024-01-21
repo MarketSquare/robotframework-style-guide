@@ -67,6 +67,7 @@ Variable Keyword
 
   </TabItem>
 </Tabs>
+
 If you prefer using equals ('=') signs, then be sure that it is formatted `${var}·=····` where each `·` is a space.
 The reason for a space immediately after a variable is to make the variable more readable.
 
