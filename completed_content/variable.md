@@ -1,6 +1,7 @@
-## Variables
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-### Generic
+## Variables
 
 Recommended methods of using and naming variables
 
@@ -22,13 +23,13 @@ Adhering to casing rules provides a convenient way of identifying the scope of a
 
 - Variable Syntax from the user guide [variable-priorities-and-scopes](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#variable-priorities-and-scopes)
 
-| Variable Scope                           | Syntax                         |
-|------------------------------------------|:----:|
-|**GLOBAL** variables use upper-case letters.  | \${UPPER CASED} or \${UPPER_CASED} |
-|**SUITE** variables use upper-case letters.   | \${UPPER CASED} or \${UPPER_CASED} |
-|**TEST** variables use upper-case letters.    | \${UPPER CASED} or \${UPPER_CASED} |
-|**LOCAL** variables use lower-case letters.   | \${lower cased} or \${lower_cased} |
-|Keyword arguments use lower-case letters. | \${lower cased} or \${lower_cased} |
+| Variable Scope                               | Syntax                               |
+|----------------------------------------------|:------------------------------------:|
+|**GLOBAL** variables use upper-case letters.  | `${UPPER CASED}` or `${UPPER_CASED}` |
+|**SUITE** variables use upper-case letters.   | `${UPPER CASED}` or `${UPPER_CASED}` |
+|**TEST** variables use upper-case letters.    | `${UPPER CASED}` or `${UPPER_CASED}` |
+|**LOCAL** variables use lower-case letters.   | `${lower cased}` or `${lower_cased}` |
+|Keyword arguments use lower-case letters.     | `${lower cased}` or `${lower_cased}` |
 
 #### Declaring Variable Scope Properly
 
@@ -99,16 +100,19 @@ Variable Keyword
 
   </TabItem>
 </Tabs>
+
 If you prefer using equals ('=') signs, then be sure that it is formatted `${var}·=····` where each `·` is a space.
 The reason for a space immediately after a variable is to make the variable more readable.
 
 ```robot
+*** Keywords ***
 Setting Variables
     ${var}·=····Set Variable    good
     ${var}=····Set Variable    not great, but seen commonly
 ```
 
 ```robot
+*** Keywords ***
 Never Like This Ever
     [Documentation]    You will throw a syntax error!
     ${var}··=····Set Variable    do not do this
@@ -136,6 +140,7 @@ ${VARIABLEONE}     same
 If you are using variables containing spaces within python code blocks (Inline script, Evaluate keyword, python module, etc...) replace the space with an underscore.
 
   ```robot
+  *** Keywords ***
   Python Syntax With Underscores
       [Argument]    ${argument variable}
       ${upper value}    Evaluate    $argument_variable.upper()
@@ -143,6 +148,7 @@ If you are using variables containing spaces within python code blocks (Inline s
   ```
 
   ```robot
+  *** Keywords ***
   Python Inline Syntax With Underscores
       [Argument]    ${argument variable}
       RETURN    ${{$argument_variable.upper()}}
@@ -163,7 +169,7 @@ It is best to define them within a Variables section of a resource or robot file
 Using a Variable that does not have a default value is a bad idea.
 
 <Tabs>
-  <TabItem value="With Spaces" style="style=1">
+  <TabItem value="With Spaces" label="style 1">
 
 ```robot
 *** Settings ***
@@ -178,8 +184,8 @@ ${VARIABLES PATH}    ${RESOURCE PATH}/Variables
 ```
 
   </TabItem>
-    <TabItem value="With Underscores" style="style=2">
-  
+  <TabItem value="With Underscores" label="style 2">
+
 ```robot
 *** Settings ***
 Resource     ${RESOURCE_PATH}/Resource.resource
@@ -197,12 +203,14 @@ ${VARIABLES_PATH}    ${RESOURCE_PATH}/Variables
 
 Consult Line Continuation in regards to how to handle the values of these types.
 
-Note you can build variables in this section from other variables the only rule is that the referenced variable has been assigned a value previously.
+:::note 
+You can build variables in the `Settings` or `Variable` sections from other variables the only rule is that the referenced variable has been assigned a value previously.
+:::
 
 *This will not work:*
 
 <Tabs>
-  <TabItem value="With Spaces" style="style 1">
+  <TabItem value="With Spaces" label="style 1">
 
 ```robot
 *** Settings ***
@@ -217,7 +225,7 @@ ${RELATIVE PATH}     ../../..
 ```
 
   </TabItem>
-   <TabItem value="With Underscores" style="style 2">
+   <TabItem value="With Underscores" label="style 2">
 
 ```robot
 *** Settings ***
@@ -260,43 +268,45 @@ The ocassional exception would be if there are FOR LOOP or WHILE LOOP structures
 
 ### Keywords
 
-A majority of Keyword level variables will be local variables (i.e. lower cased, lower_cased)
-Case variables according to how they are assigned.
+A majority of Keyword level variables will be local variables (i.e. lower cased, lower_cased).
+But other scopes can be assigned using `BuildIn keywords`, make sure you case variables according to how they are assigned.
 
 <Tabs>
-  <TabItem value="With Spaces" style="style 1">
+  <TabItem value="With Spaces" label="style 1">
 
 ```robot
+*** Keywords ***
 A Keyword of Variables
     [Documentation]     This keyword will create these variables:
     ...    ${TEST VARIABLE}
     ...    ${SUITE VARIABLE}
     ...    ${GLOBAL VARIABLE}
     [Arguments]    ${this is an argument}
-    Set Local Variable    ${local variable}    use lower case
-    ${assigned local variable}    Set Variable    use lower case also
-    Set Test Variable    ${TEST VARIABLE}    USE UPPER CASE
-    Set Suite Variable    ${SUITE VARIABLE}    USE UPPER CASE
-    ${GLOBAL VARIABLE}    Create List    BETTER    USE    UPPER    CASE
-    Set Global Variable    ${GLOBAL VARIABLE}
+    Set Local Variable            ${local variable}    use lower case
+    ${assigned local variable}    Set Variable         use lower case also
+    Set Test Variable             ${TEST VARIABLE}     USE UPPER CASE
+    Set Suite Variable            ${SUITE VARIABLE}    USE UPPER CASE
+    ${GLOBAL VARIABLE}            Create List          BETTER    USE    UPPER    CASE
+    Set Global Variable           ${GLOBAL VARIABLE}
 ```
 
   </TabItem>
-    <TabItem value="With Underscores" style="style 2">
+    <TabItem value="With Underscores" label="style 2">
 
 ```robot
+*** Keywords ***
 A Keyword of Variables
     [Documentation]     This keyword will create these variables:
     ...    ${TEST_VARIABLE}
     ...    ${SUITE_VARIABLE}
     ...    ${GLOBAL_VARIABLE}
     [Arguments]    ${this_is_an_argument}
-    Set Local Variable    ${local_variable}    use lower case
-    ${assigned_local_variable}    Set Variable    use lower case also
-    Set Test Variable    ${TEST_VARIABLE}    USE UPPER CASE
-    Set Suite Variable    ${SUITE_VARIABLE}    USE UPPER CASE
-    ${GLOBAL_VARIABLE}    Create List    BETTER    USE    UPPER    CASE
-    Set Global Variable    ${GLOBAL_VARIABLE}
+    Set Local Variable            ${local_variable}    use lower case
+    ${assigned_local_variable}    Set Variable         use lower case also
+    Set Test Variable             ${TEST_VARIABLE}     USE UPPER CASE
+    Set Suite Variable            ${SUITE_VARIABLE}    USE UPPER CASE
+    ${GLOBAL_VARIABLE}            Create List          BETTER    USE    UPPER    CASE
+    Set Global Variable           ${GLOBAL_VARIABLE}
 ```
 
   </TabItem>
@@ -387,7 +397,19 @@ Assume variables declared within json variable files to be at minimum SUITE in s
 
 ### Special Cases
 
-### Deviation When Context Is More Important
+#### Commandline Variables
+
+Commandline Variables and by extension variable files should be treated as Global Variables. (i.e. Always UPPER CASED, UPPER_CASED)
+
+#### Environment Variables
+
+<https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#environment-variables>
+
+Environment Variables should be treated as Global Variables. (i.e. Always UPPER CASED, UPPER_CASED)
+
+It is also possible that the variable casing needs to match how the variable has been declared outside of Robot Framework's context.
+
+#### Deviation When Context Is More Important
 
 Sometimes variables should mimic the parameters of an API. This is especially true when interacting with REST API json bodies.
 
@@ -404,9 +426,10 @@ You have a couple of choices:
 
 *Then choose either:*
 <Tabs>
-  <TabItem value="Using normal variable syntax" style="style 1">
+  <TabItem value="Using normal variable syntax" label="style 1">
 
 ```robot
+*** Keywords ***
 Create Json Body Option One
   [Documentation]    This one is an 'OK' example.
   [Arguments]    ${first name}    ${last name}
@@ -415,9 +438,10 @@ Create Json Body Option One
 ```
 
   </TabItem>
-  <TabItem value="Matching variables to Json keys" style="style 2">
+  <TabItem value="Matching variables to Json keys" label="style 2">
 
 ```robot
+*** Keywords ***
 Create Json Body Option Two
   [Documentation]   This is also an 'OK' example.
   [Arguments]    ${firstName}    ${lastName}
@@ -427,18 +451,6 @@ Create Json Body Option Two
 
   </TabItem>
 </Tabs>  
-
-#### Commandline Variables
-
-Commandline Variables and by extension variable files should be treated as Global Variables. (i.e. Always UPPER CASED, UPPER_CASED)
-
-#### Environment Variables
-
-<https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#environment-variables>
-
-Environment Variables should be treated as Global Variables. (i.e. Always UPPER CASED, UPPER_CASED)
-
-It is also possible that the variable casing needs to match how the variable has been declared outside of Robot Framework's context.
 
 #### Embedded Variables
 
@@ -451,32 +463,34 @@ Keep it simple.
 Readability becomes an issue with more than one embedded variable.
 
 <Tabs>
-  <TabItem  value="With Spaces" style="style 1">
+  <TabItem  value="With Spaces" label="style 1">
 
 ```robot
+*** Keywords ***
 Set Suite Variables
     Set Suite Variable    ${EMBED VAR}   embedded
     Set Suite Variable    ${VARIABLE ${EMBED VAR}}    good embedded variable
     Set Suite Variable    ${FOO}    eggs
     Set Suite Variable    ${BAR}    spam  
     Set Suite Variable    ${VARIABLE ${FOO} ${BAR}}    questionable variable
-    Set Suite Variable    ${VAR}  one
+    Set Suite Variable    ${VAR}    one
     Set Suite Variable    ${WITHIN ${VAR}}  two
     Set Suite Variable    ${VARIABLES ${WITHIN ${VAR}}}  three
     Set Suite Variable    ${INCEPTION ${VARIABLES ${WITHIN ${VAR}}}}  do not do this
 ```
 
   </TabItem>
-  <TabItem  value="With Underscores" style="style 2">
+  <TabItem  value="With Underscores" label="style 2">
 
 ```robot
+*** Keywords ***
 Set Suite Variables
     Set Suite Variable    ${EMBED_VAR}   embedded
     Set Suite Variable    ${VARIABLE_${EMBED_VAR}}    good embedded variable
     Set Suite Variable    ${FOO}    eggs
     Set Suite Variable    ${BAR}    spam  
     Set Suite Variable    ${VARIABLE_${FOO}_${BAR}}    questionable variable
-    Set Suite Variable    ${VAR}  one
+    Set Suite Variable    ${VAR}    one
     Set Suite Variable    ${WITHIN_${VAR}}  two
     Set Suite Variable    ${VARIABLES_${WITHIN_${VAR}}}  three
     Set Suite Variable    ${INCEPTION_${VARIABLES_${WITHIN_${VAR}}}}  do not do this
