@@ -1,4 +1,6 @@
-# Variables
+## Variables
+
+### Generic
 
 Recommended methods of using and naming variables
 
@@ -14,7 +16,7 @@ If your project participants are less technical more syntactic sugar may be nece
 
 ---
 
-## Variable Scope And Casing
+### Variable Scope And Casing
 
 Adhering to casing rules provides a convenient way of identifying the scope of a variable.
 
@@ -28,9 +30,42 @@ Adhering to casing rules provides a convenient way of identifying the scope of a
 |**LOCAL** variables use lower-case letters.   | \${lower cased} or \${lower_cased} |
 |Keyword arguments use lower-case letters. | \${lower cased} or \${lower_cased} |
 
+#### Declaring Variable Scope Properly
+
+It is advised to not reuse GLOBAL or SUITE variable names in lower scoped contexts.
+
+*Example:*
+
+Robot Framework ignores casing therefore `${I AM A VARIABLE}` is the same as `${i am a variable}`.
+
+```robot
+*** Variables ***
+${I AM A VARIABLE}    This is a SUITE scoped variables
+
+
+*** Test Cases ***
+Variable Casing Test
+    [Documentation]    Robot Framework ignores casing.
+    Log To Console    ${I AM A VARIABLE}
+    Should Be Equal     ${I AM A VARIABLE}    ${i am a variable}
+
+Same Variable Different Scope Test
+    [Documentation]    The SUITE variable is overwritten by an argument then TEST scoped variable of same name.
+    A Keyword With Arguments    This will be printed.
+    Should Not Be Equal     ${I AM A VARIABLE}    This is a SUITE scoped variables 
+
+
+*** Keywords ***
+A Keyword With Arguments
+    [Documentation]    The argument will take precedence then the SUITE level variable will be overwritten by a TEST scope variable.
+    [Arguments]    ${i am a variable}
+    Log To Console    ${i am a variable}
+    Set Test Variable    ${i am a variable}
+```
+
 ---
 
-## Variable Assignment Syntax
+### Variable Assignment Syntax
 
 There are two favored syntaxes for assigning a value to a variable:
 
@@ -79,7 +114,9 @@ Never Like This Ever
     ${var}··=····Set Variable    do not do this
 ```
 
-## Spaces Within Variables
+---
+
+### Spaces Or Underscores Variables
 
 Referring back to who will be involved with reading and understanding test cases, it may be best to use spaces instead of underscores.
 
@@ -94,7 +131,7 @@ ${VARIABLE ONE}    same
 ${VARIABLEONE}     same
 ```
 
-### Using Variables With Spaces Within Python Code Blocks
+#### Using Variables With Spaces Within Python Code Blocks
 
 If you are using variables containing spaces within python code blocks (Inline script, Evaluate keyword, python module, etc...) replace the space with an underscore.
 
@@ -111,17 +148,9 @@ If you are using variables containing spaces within python code blocks (Inline s
       RETURN    ${{$argument_variable.upper()}}
   ```
 
-## Variables Within The Variables Section
+---
 
-Variables declared within the *** Variables *** section are Suite level in scope. (i.e. Always UPPER CASED, UPPER_CASED)
-
-Be sure to use the correct indicators of type of Variables:
-
-- Scalar ($)
-- List (@)
-- Dictionary (&)
-
-## Variables Within Settings Section
+### Variables Within Settings Section
 
 Variables can be used within the settings section.
 
@@ -205,7 +234,31 @@ ${RELATIVE_PATH}     ../../..
   </TabItem>
 </Tabs>  
 
-## Variables Within Keywords
+---
+
+### Variables Section
+
+Variables declared within the *** Variables *** section are Suite level in scope. (i.e. Always UPPER CASED, UPPER_CASED)
+
+Be sure to use the correct indicators of type of Variables:
+
+- Scalar ($)
+- List (@)
+- Dictionary (&)
+
+---
+
+### Test Cases Or Tasks
+
+Variables assigned within a test/task should be treated as Test Variables in scope. (i.e. Always UPPER CASED, UPPER_CASED)
+
+The ocassional exception would be if there are FOR LOOP or WHILE LOOP structures then in those cases it would be acceptable.
+
+*FOR LOOP and WHILE LOOP structures should be avoided in test cases.*
+
+---
+
+### Keywords
 
 A majority of Keyword level variables will be local variables (i.e. lower cased, lower_cased)
 Case variables according to how they are assigned.
@@ -255,21 +308,15 @@ If setting Suite and Global Variables within keywords from resource files.
 Setting Test Variables should be reserved to test cases if at all possible.
 In either case document non-local scoped variables.
 
-## Variables Within Tests/Tasks
+---
 
-Variables assigned within a test/task should be treated as Test Variables in scope. (i.e. Always UPPER CASED, UPPER_CASED)
-
-The ocassional exception would be if there are FOR LOOP or WHILE LOOP structures then in those cases it would be acceptable.
-
-*FOR LOOP and WHILE LOOP structures should be avoided in test cases.*
-
-## Variable Files
+### Variable Files
 
 Assume variables declared within variable files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
 
 The examples given are using variables with spaces.
 
-### .resource Variable Files
+#### .resource Variable Files
 
 Assume variables declared within the Variable section of a resource files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
 
@@ -281,7 +328,7 @@ ${INT VARIABLE}       ${42}
 &{DICT VARIABLE}      one=yksi    two=kaksi    with spaces=kolme
 ```
 
-### Python Variable Files
+#### Python Variable Files
 
 Assume variables declared within python variable files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
 
@@ -296,7 +343,7 @@ LIST_VARIABLE = ["one", "two"]
 DICT_VARIABLE = {"one": "yksi", "two": "kaksi", "with spaces": "kolme"}
 ```
 
-### Yaml Variable Files
+#### Yaml Variable Files
 
 Assume variables declared within yaml variable files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
 
@@ -316,7 +363,7 @@ DICT VARIABLE:
   with spaces: kolme
 ```
 
-### Json Variable Files
+#### Json Variable Files
 
 Assume variables declared within json variable files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
 
@@ -338,7 +385,7 @@ Assume variables declared within json variable files to be at minimum SUITE in s
 
 ---
 
-## Special Variable Cases
+### Special Cases
 
 ### Deviation When Context Is More Important
 
@@ -381,22 +428,19 @@ Create Json Body Option Two
   </TabItem>
 </Tabs>  
 
-### Variables with Attributes
+#### Commandline Variables
 
-[extended-variable-assignment](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#extended-variable-assignment)
+Commandline Variables and by extension variable files should be treated as Global Variables. (i.e. Always UPPER CASED, UPPER_CASED)
 
-Attributes to variables can be any casing and usually follow the use case.
-The variable itself should follow the casing rules of its scope.
+#### Environment Variables
 
-```robot
-Attribute Variables
-    ${local variable.name}    Set Variable              this is a variable
-    ${local variable.foo}     Set Variable              this is an local attribute
-    Set Suite Variable        ${SUITE VARIABLE.name}    this is a suite variable
-    ${SUITE VARIABLE.bar}     Set Variable              this is an suite attribute
-```
+<https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#environment-variables>
 
-### Embedded Variables
+Environment Variables should be treated as Global Variables. (i.e. Always UPPER CASED, UPPER_CASED)
+
+It is also possible that the variable casing needs to match how the variable has been declared outside of Robot Framework's context.
+
+#### Embedded Variables
 
 [variables-inside-variables](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#variables-inside-variables)
 
@@ -405,7 +449,6 @@ Be careful to not embed more than one variable within a variable.
 Keep it simple.
 
 Readability becomes an issue with more than one embedded variable.
-
 
 <Tabs>
   <TabItem  value="With Spaces" style="style 1">
@@ -442,14 +485,17 @@ Set Suite Variables
   </TabItem>
 </Tabs>  
 
-### Commandline Variables
+#### Variables with Attributes
 
-Commandline Variables and by extension variable files should be treated as Global Variables. (i.e. Always UPPER CASED, UPPER_CASED)
+[extended-variable-assignment](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#extended-variable-assignment)
 
-### Environment Variables
+Attributes to variables can be any casing and usually follow the use case.
+The variable itself should follow the casing rules of its scope.
 
-<https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#environment-variables>
-
-Environment Variables should be treated as Global Variables. (i.e. Always UPPER CASED, UPPER_CASED)
-
-It is also possible that the variable casing needs to match how the variable has been declared outside of Robot Framework's context.
+```robot
+Attribute Variables
+    ${local variable.name}    Set Variable              this is a variable
+    ${local variable.foo}     Set Variable              this is an local attribute
+    Set Suite Variable        ${SUITE VARIABLE.name}    this is a suite variable
+    ${SUITE VARIABLE.bar}     Set Variable              this is an suite attribute
+```
