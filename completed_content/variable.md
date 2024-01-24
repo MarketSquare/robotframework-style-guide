@@ -164,9 +164,11 @@ They are useful for dynamic file paths and other values.
 
 Typically they are Suite or Global scoped variables. (i.e. Always UPPER CASED, UPPER_CASED)
 
-It is best to define them within a Variables section of a resource or robot file, and very easy to track down.
+These variables may come from the Command Line, Resource Files, Variable Files, or the current `*** Variables ***` section
 
-Using a Variable that does not have a default value is a bad idea.
+It is a good idea to set a default value for a variable used in the `*** Settings ***` section to prevent import errors.
+
+*Example:*
 
 <Tabs>
   <TabItem value="With Spaces" label="style 1">
@@ -201,58 +203,52 @@ ${VARIABLES_PATH}    ${RESOURCE_PATH}/Variables
   </TabItem>
 </Tabs>  
 
-Consult Line Continuation in regards to how to handle the values of these types.
-
-:::note 
-You can build variables in the `Settings` or `Variable` sections from other variables the only rule is that the referenced variable has been assigned a value previously.
-:::
-
-*This will not work:*
-
-<Tabs>
-  <TabItem value="With Spaces" label="style 1">
-
-```robot
-*** Settings ***
-Resource     ${RESOURCE PATH}/Resource.resource
-Variables    ${VARIABLES PATH}/Variables.yaml
-
-
-*** Variables ***
-${RESOURCE PATH}     ${RELATIVE PATH}/Resources
-${VARIABLES PATH}    ${RESOURCE PATH}/Variables
-${RELATIVE PATH}     ../../..
-```
-
-  </TabItem>
-   <TabItem value="With Underscores" label="style 2">
-
-```robot
-*** Settings ***
-Resource     ${RESOURCE_PATH}/Resource.resource
-Variables    ${VARIABLES_PATH}/Variables.yaml
-
-
-*** Variables ***
-${RESOURCE_PATH}     ${RELATIVE_PATH}/Resources
-${VARIABLES_PATH}    ${RESOURCE_PATH}/Variables
-${RELATIVE_PATH}     ../../..
-```
-
-  </TabItem>
-</Tabs>  
-
 ---
 
 ### Variables Section
 
-Variables declared within the *** Variables *** section are Suite level in scope. (i.e. Always UPPER CASED, UPPER_CASED)
+Variables declared within the `*** Variables ***` section are Suite level in scope. (i.e. Always UPPER CASED, UPPER_CASED)
 
 Be sure to use the correct indicators of type of Variables:
 
 - Scalar ($)
 - List (@)
 - Dictionary (&)
+
+Consult the Style Guide Line Continuation Section in regards to how to handle the values of these types.
+
+:::note
+
+You can build variables in the  `*** Variables ***` section by combining previously assigned variables.
+
+Order of the variable assignments is important.
+
+:::
+
+*Example:*
+
+<Tabs>
+  <TabItem value="Incorrect Order" label="style 1">
+
+```robot
+*** Variables ***
+${RESOURCE PATH}     ${RELATIVE PATH}/Resources  # This line calls ${RELATIVE PATH} that has not been declared yet.
+${VARIABLES PATH}    ${RESOURCE PATH}/Variables  # This line calls ${VARIABLES PATH} that has not been declared yet.
+${RELATIVE PATH}     ../../..
+```
+
+  </TabItem>
+   <TabItem value="Correct Order" label="style 2">
+
+```robot
+*** Variables ***
+${RELATIVE PATH}     ../../..
+${RESOURCE PATH}     ${RELATIVE PATH}/Resources
+${VARIABLES PATH}    ${RESOURCE PATH}/Variables
+```
+
+  </TabItem>
+</Tabs>  
 
 ---
 
@@ -269,7 +265,7 @@ The ocassional exception would be if there are FOR LOOP or WHILE LOOP structures
 ### Keywords
 
 A majority of Keyword level variables will be local variables (i.e. lower cased, lower_cased).
-But other scopes can be assigned using `BuildIn keywords`, make sure you case variables according to how they are assigned.
+But other scopes can be assigned using `BuiltIn keywords`, make sure you case variables according to how they are assigned.
 
 <Tabs>
   <TabItem value="With Spaces" label="style 1">
@@ -320,13 +316,15 @@ In either case document non-local scoped variables.
 
 ---
 
-### Variable Files
+### Special Cases
+
+#### Variable Files
 
 Assume variables declared within variable files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
 
 The examples given are using variables with spaces.
 
-#### .resource Variable Files
+##### .resource Variable Files
 
 Assume variables declared within the Variable section of a resource files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
 
@@ -338,7 +336,7 @@ ${INT VARIABLE}       ${42}
 &{DICT VARIABLE}      one=yksi    two=kaksi    with spaces=kolme
 ```
 
-#### Python Variable Files
+##### Python Variable Files
 
 Assume variables declared within python variable files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
 
@@ -353,7 +351,7 @@ LIST_VARIABLE = ["one", "two"]
 DICT_VARIABLE = {"one": "yksi", "two": "kaksi", "with spaces": "kolme"}
 ```
 
-#### Yaml Variable Files
+##### Yaml Variable Files
 
 Assume variables declared within yaml variable files to be at minimum SUITE in scope. (i.e. Always UPPER CASED, UPPER_CASED)
 
@@ -392,10 +390,6 @@ Assume variables declared within json variable files to be at minimum SUITE in s
     }
 }
 ```
-
----
-
-### Special Cases
 
 #### Commandline Variables
 
