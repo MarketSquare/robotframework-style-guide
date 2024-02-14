@@ -1,5 +1,10 @@
 # Release Information
 
+## about_style_guide.md Version 0.7b 2024-02-15
+
+- Introduction and main guide merged.
+- "Variables" section added.
+
 ## about_style_guide.md Version 0.4b 2023-11-14
 
 Initial public release open for feedback.
