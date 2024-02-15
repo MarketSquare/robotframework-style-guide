@@ -147,9 +147,11 @@ Keyword
     [Tags]
     [Arguments]
     [Timeout]
+    [Setup]
     Static Variable Assignments
     Keyword Calls
     [Teardown]
+    RETURN
 ```
 
 #### Keywords - Best Practices
@@ -313,12 +315,12 @@ Key to examples:
 
 > ① Two spaces between sections  
 ② One space between Tests/Tasks  
-③ No space in the settings section of Tests/Tasks or Keywords
-④ No space after settings section of Tests/Tasks or Keywords
-⑤ No spaces between template Test/Task data lines
-⑥ One space Between Keywords
-⑦ No space between continuation lines
-⑧ One space for separating code blocks
+③ No space in the settings section of Tests/Tasks or Keywords  
+④ No space after settings section of Tests/Tasks or Keywords  
+⑤ No spaces between template Test/Task data lines  
+⑥ One space Between Keywords  
+⑦ No space between continuation lines  
+⑧ One space for separating code blocks  
 ⑨ One space at the very end of the file
 
 ##### Example Robot File Vertical White Spacing
