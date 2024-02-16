@@ -102,6 +102,28 @@ Test/Task Template
 Test/Task Tags
 ```
 
+For easier navigation, libraries in each group can be sorted alphabetically.
+Additionally, extra new lines can be used to separate the BuiltIn, 3rd Party and Custom libraries.
+
+```robot
+*** Settings ***
+...
+Library    BuiltIn
+Library    Collections
+Library    DateTime
+Library    OperatingSystem
+
+Library    Browser
+Library    JSONLibrary
+Library    SSHLibrary
+
+Library    Acustom
+Library    Bcustom
+Library    Ccustom
+Library    Dcustom
+...
+```
+
 ---
 
 ### Variables
