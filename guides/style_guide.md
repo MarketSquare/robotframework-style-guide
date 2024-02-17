@@ -102,6 +102,28 @@ Test/Task Template
 Test/Task Tags
 ```
 
+For easier navigation, libraries in each group can be sorted alphabetically.
+Additionally, extra new lines can be used to separate the BuiltIn, 3rd Party and Custom libraries.
+
+```robot
+*** Settings ***
+...
+Library    BuiltIn
+Library    Collections
+Library    DateTime
+Library    OperatingSystem
+
+Library    Browser
+Library    JSONLibrary
+Library    SSHLibrary
+
+Library    Acustom
+Library    Bcustom
+Library    Ccustom
+Library    Dcustom
+...
+```
+
 ---
 
 ### Variables
@@ -151,7 +173,6 @@ Keyword
     Static Variable Assignments
     Keyword Calls
     [Teardown]
-    RETURN
 ```
 
 #### Keywords - Best Practices
@@ -788,8 +809,7 @@ Test Case With Many Keywords And Arguments
     ...    @{mylist}
     Do A Lot Of Stuff
     More Stuff
-    Use One More Keyword With Various Arguments
-    ...    abc
+    Use One More Keyword With Various Arguments    abc
     ...    123
     ...    optional arg=12345
     ...    another optional arg=Hello
@@ -1565,7 +1585,7 @@ The variable itself should follow the casing rules of its scope.
 ```robot
 Attribute Variables
     ${local variable.name}    Set Variable              this is a variable
-    ${local variable.foo}     Set Variable              this is an local attribute
+    ${local variable.foo}     Set Variable              this is a local attribute
     Set Suite Variable        ${SUITE VARIABLE.name}    this is a suite variable
-    ${SUITE VARIABLE.bar}     Set Variable              this is an suite attribute
+    ${SUITE VARIABLE.bar}     Set Variable              this is a suite attribute
 ```
