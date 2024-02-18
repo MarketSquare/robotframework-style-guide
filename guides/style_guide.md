@@ -12,7 +12,7 @@ Version 0.7b
 
 This style guide is a community driven set of sensible rules to write your Robot Framework code.
 
-As a starting point use the existing standards from [Robot Framework](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#getting-started) user guide, [Robocop](https://github.com/MarketSquare/robotframework-robocop) and [Robotidy](https://robotidy.readthedocs.io/en/stable/).
+As a starting point, use the existing standards from [Robot Framework](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#getting-started) user guide, [Robocop](https://github.com/MarketSquare/robotframework-robocop), and [Robotidy](https://robotidy.readthedocs.io/en/stable/).
 
 ### Robocon 2022 Presentation
 
@@ -81,7 +81,7 @@ Please note that one file can contain either tests or tasks, but not both.
 
 ### Settings
 
-User Guide Reference [Settings Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#setting-section-1)
+User Guide Reference: [Settings Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#setting-section-1)
 
 ```robot
 *** Settings ***
@@ -105,7 +105,7 @@ Test/Task Tags
 ```
 
 For easier navigation, libraries in each group can be sorted alphabetically.
-Additionally, extra new lines can be used to separate the BuiltIn, 3rd Party and Custom libraries.
+Additionally, extra new lines can be used to separate the builtin, 3rd party and custom libraries.
 
 ```robot
 *** Settings ***
@@ -144,7 +144,7 @@ ${COMPOSITE VARIABLES}  ${VARIABLE} with other variables.
 
 ### Test Cases Or Tasks
 
-User Guide Reference [Test Case Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-case-section)
+User Guide Reference: [Test Case Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-case-section)
 
 ```robot
 Test Case
@@ -163,7 +163,7 @@ Test Case
 
 ### Keyword
 
-User Guide Reference [Keyword Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#keyword-section-1)
+User Guide Reference: [Keyword Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#keyword-section-1)
 
 ```robot
 Keyword
