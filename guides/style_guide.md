@@ -56,6 +56,8 @@ Vertical order refers to the recommended order of settings, sections, variables,
 
 User Guide Reference: [Test Data Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-data-sections)
 
+Please note that one file can contain either tests or tasks, but not both.
+
 ```robot
 *** Comments ***
 
