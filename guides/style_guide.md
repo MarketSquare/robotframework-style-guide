@@ -148,9 +148,9 @@ User Guide Reference [Test Case Section](https://robotframework.org/robotframewo
 Test Case
     [Documentation]
     [Tags]
+    [Timeout]
     [Setup]
     [Template]
-    [Timeout]
     Static Variable Assignments
     Keyword Calls
     Verification Keyword Call
