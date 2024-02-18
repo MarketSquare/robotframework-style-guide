@@ -239,12 +239,8 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
     ${VARIABLE}    a variable
 
 
-    *** Test Cases ***
-    Test Case
-
-
-    *** Tasks ***
-    Task
+    *** Test Cases / Tasks ***
+    Test Case / Task
 
 
     *** Keywords ***
