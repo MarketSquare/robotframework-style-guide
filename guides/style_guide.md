@@ -12,7 +12,9 @@ Version 0.7b
 
 This style guide is a community driven set of sensible rules to write your Robot Framework code.
 
-As a starting point, use the existing standards from [Robot Framework](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#getting-started) user guide, [Robocop](https://github.com/MarketSquare/robotframework-robocop), and [Robotidy](https://robotidy.readthedocs.io/en/stable/).
+As a starting point, use the existing standards from
+[Robot Framework](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#getting-started) user guide,
+[Robocop](https://robocop.readthedocs.io/en/stable/), and [Robotidy](https://robotidy.readthedocs.io/en/stable/).
 
 ### Robocon 2022 Presentation
 
