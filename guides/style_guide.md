@@ -12,7 +12,9 @@ Version 0.7b
 
 This style guide is a community driven set of sensible rules to write your Robot Framework code.
 
-As a starting point use the existing standards from [Robot Framework](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#getting-started) user guide, [Robocop](https://github.com/MarketSquare/robotframework-robocop) and [Robotidy](https://robotidy.readthedocs.io/en/stable/).
+As a starting point, use the existing standards from
+[Robot Framework](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#getting-started) user guide,
+[Robocop](https://robocop.readthedocs.io/en/stable/), and [Robotidy](https://robotidy.readthedocs.io/en/stable/).
 
 ### Robocon 2022 Presentation
 
@@ -56,6 +58,8 @@ Vertical order refers to the recommended order of settings, sections, variables,
 
 User Guide Reference: [Test Data Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-data-sections)
 
+Please note that one file can contain either tests or tasks, but not both.
+
 ```robot
 *** Comments ***
 
@@ -79,7 +83,7 @@ User Guide Reference: [Test Data Section](https://robotframework.org/robotframew
 
 ### Settings
 
-User Guide Reference [Settings Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#setting-section-1)
+User Guide Reference: [Settings Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#setting-section-1)
 
 ```robot
 *** Settings ***
@@ -96,14 +100,14 @@ Suite Setup
 Suite Teardown
 Test/Task Setup
 Test/Task Teardown
-Test/Task Timeout
 Test/Task Template
+Test/Task Timeout
 
 Test/Task Tags
 ```
 
 For easier navigation, libraries in each group can be sorted alphabetically.
-Additionally, extra new lines can be used to separate the BuiltIn, 3rd Party and Custom libraries.
+Additionally, extra new lines can be used to separate the builtin, 3rd party and custom libraries.
 
 ```robot
 *** Settings ***
@@ -142,15 +146,15 @@ ${COMPOSITE VARIABLES}  ${VARIABLE} with other variables.
 
 ### Test Cases Or Tasks
 
-User Guide Reference [Test Case Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-case-section)
+User Guide Reference: [Test Case Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-case-section)
 
 ```robot
 Test Case
     [Documentation]
     [Tags]
+    [Timeout]
     [Setup]
     [Template]
-    [Timeout]
     Static Variable Assignments
     Keyword Calls
     Verification Keyword Call
@@ -161,7 +165,7 @@ Test Case
 
 ### Keyword
 
-User Guide Reference [Keyword Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#keyword-section-1)
+User Guide Reference: [Keyword Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#keyword-section-1)
 
 ```robot
 Keyword
@@ -235,12 +239,8 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
     ${VARIABLE}    a variable
 
 
-    *** Test Cases ***
-    Test Case
-
-
-    *** Tasks ***
-    Task
+    *** Test Cases / Tasks ***
+    Test Case / Task
 
 
     *** Keywords ***
@@ -269,13 +269,13 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
 
     Suite Setup  
     Suite Teardown  
-    Test Setup  
+    Test/Task Setup
     Test/Task Teardown  
     Test/Task Template  
     Test/Task Timeout  
 
     Default Tags  
-    Test Tags
+    Test/Task Tags
 ```  
 
 #### Spacing Between Settings Within A Test Case, Task Or Keyword
