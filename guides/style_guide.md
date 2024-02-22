@@ -100,8 +100,8 @@ Suite Setup
 Suite Teardown
 Test/Task Setup
 Test/Task Teardown
-Test/Task Timeout
 Test/Task Template
+Test/Task Timeout
 
 Test/Task Tags
 ```
@@ -269,13 +269,13 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
 
     Suite Setup  
     Suite Teardown  
-    Test Setup  
+    Test/Task Setup
     Test/Task Teardown  
     Test/Task Template  
     Test/Task Timeout  
 
     Default Tags  
-    Test Tags
+    Test/Task Tags
 ```  
 
 #### Spacing Between Settings Within A Test Case, Task Or Keyword
