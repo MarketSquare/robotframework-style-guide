@@ -58,7 +58,8 @@ Vertical order refers to the recommended order of settings, sections, variables,
 
 User Guide Reference: [Test Data Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-data-sections)
 
-Please note that one file can contain either tests or tasks, but not both.
+<Tabs>
+  <TabItem  value="tests" label="Tests">
 
 ```robot
 *** Comments ***
@@ -71,19 +72,41 @@ Please note that one file can contain either tests or tasks, but not both.
 
 
 *** Test Cases *** 
+
+
+*** Keywords ***
+```
+
+  </TabItem>
+  <TabItem  value="tasks" label="RPA">
+
+```robot
+*** Comments ***
+
+
+*** Settings ***
+
+
+*** Variables ***
+
+
 *** Tasks ***
 
 
 *** Keywords ***
-
-
 ```
+
+  </TabItem>
+</Tabs>
 
 ---
 
 ### Settings
 
 User Guide Reference: [Settings Section](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#setting-section-1)
+
+<Tabs>
+  <TabItem  value="tests" label="Tests">
 
 ```robot
 *** Settings ***
@@ -98,13 +121,40 @@ Variables
 
 Suite Setup
 Suite Teardown
-Test/Task Setup
-Test/Task Teardown
-Test/Task Template
-Test/Task Timeout
+Test Setup
+Test Teardown
+Test Template
+Test Timeout
 
-Test/Task Tags
+Test Tags
 ```
+
+  </TabItem>
+  <TabItem  value="tasks" label="RPA">
+
+```robot
+*** Settings ***
+Documentation
+Metadata
+
+Library    BuiltIn
+Library    3rd Party
+Library    Custom
+Resource
+Variables
+
+Suite Setup
+Suite Teardown
+Task Setup
+Task Teardown
+Task Template
+Task Timeout
+
+Task Tags
+```
+
+  </TabItem>
+</Tabs>
 
 For easier navigation, libraries in each group can be sorted alphabetically.
 Additionally, extra new lines can be used to separate the builtin, 3rd party and custom libraries.
@@ -226,6 +276,9 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
 
 ##### Example Of Section Header And Section Spacing
 
+<Tabs>
+  <TabItem  value="tests" label="Tests">
+
 ```robot
     *** Comments ***
     Comments
@@ -239,14 +292,40 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
     ${VARIABLE}    a variable
 
 
-    *** Test Cases / Tasks ***
-    Test Case / Task
+    *** Test Cases ***
+    Test Case
 
 
     *** Keywords ***
     Keyword 
-
 ```
+
+  </TabItem>
+  <TabItem  value="tasks" label="RPA">
+
+```robot
+    *** Comments ***
+    Comments
+
+
+    *** Settings ***
+    Documentation
+
+
+    *** Variables ***
+    ${VARIABLE}    a variable
+
+
+    *** Tasks ***
+    Tasks
+
+
+    *** Keywords ***
+    Keyword
+```
+
+  </TabItem>
+</Tabs>
 
 ---
 
@@ -258,6 +337,9 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
 
 ##### Example Of Settings Section Vertical Spacing
 
+<Tabs>
+  <TabItem  value="tests" label="Tests">
+
 ```robot
     *** Settings ***
     Documentation  
@@ -268,15 +350,41 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
     Variables  
 
     Suite Setup  
-    Suite Teardown  
-    Test/Task Setup
-    Test/Task Teardown  
-    Test/Task Template  
-    Test/Task Timeout  
+    Suite Teardown
+    Test Setup
+    Test Teardown
+    Test Template
+    Test Timeout
 
     Default Tags  
-    Test/Task Tags
-```  
+    Test Tags
+```
+
+  </TabItem>
+  <TabItem  value="tasks" label="RPA">
+
+```robot
+    *** Settings ***
+    Documentation
+    Metadata
+
+    Library
+    Resource
+    Variables
+
+    Suite Setup
+    Suite Teardown
+    Task Setup
+    Task Teardown
+    Task Template
+    Task Timeout
+
+    Default Tags
+    Task Tags
+```
+
+  </TabItem>
+</Tabs>
 
 #### Spacing Between Settings Within A Test Case, Task Or Keyword
 
@@ -345,6 +453,9 @@ Key to examples:
 ⑨ One space at the very end of the file
 
 ##### Example Robot File Vertical White Spacing
+
+<Tabs>
+  <TabItem  value="tests" label="Tests">
 
 ```robot
 *** Comments ***
@@ -424,6 +535,90 @@ Test Teardown Keywords
 ⑨
 ```
 
+  </TabItem>
+  <TabItem  value="tasks" label="RPA">
+
+```robot
+*** Comments ***
+This is the comments section
+①
+
+*** Settings ***
+Documentation       This is documentation
+⑦ ...               robot -d Results -i example-tag Tasks
+
+Library             Collections
+Resource            ../Resources/ExampleResource.resource
+
+Suite Setup         Suite Setup Keywords
+Suite Teardown      Suite Teardown Keywords
+Task Setup          Task Setup Keywords
+Task Teardown       Task Teardown Keywords
+
+Task Tags           example-tag
+
+
+*** Variables ***
+${EXAMPLE SCALAR VARIABLE}          This is a suite scope scalar variable
+@{EXAMPLE LIST VARIABLE}            This    is    a    suite    scope    list    variable
+&{EXAMPLE DICTIONARY VARIABLE}      This=is a
+⑦ ...                               suite=scope
+...                                 dictionary=variable
+①
+
+*** Tasks ***
+An Example Task
+③   [Documentation]    Task documentation
+    [Tags]    standard-example-tag
+④   ${RESULT LIST}    This Is A Complex Keyword With Sections    ${EXAMPLE SCALAR VARIABLE}
+    Log To Console    ${RESULT LIST}
+②
+A More Complex Task
+③   [Documentation]    Task documentation
+    [Tags]    standard-example-tag
+    [Setup]    Set Task Variable    ${EXPECTED LENGTH}    2
+    ${IS LARGER THAN FOUR}    Create List
+⑧
+    ## Adding vertical white space can be used to separate task code blocks
+    FOR    ${item}    IN    @{EXAMPLE LIST VARIABLE}
+        IF    len($item)> 4
+            This Is A Complex Keyword With Sections    ${item}
+            Append To List    ${IS LARGER THAN FOUR}    ${item}
+        END
+    END
+    Length Should Be    ${IS LARGER THAN FOUR}    ${EXPECTED LENGTH}
+②
+An Example Templated Task
+③   [Documentation]    Templated task documentation.
+    [Tags]    templated-example-tag
+    [Template]    This Is A Complex Keyword With Sections
+⑤   ${EXAMPLE DICTIONARY VARIABLE}[This]
+    ${EXAMPLE DICTIONARY VARIABLE}[suite]
+    ${EXAMPLE DICTIONARY VARIABLE}[dictionary]
+①
+
+*** Keywords ***
+Suite Setup Keywords
+    [Documentation]    A keyword for setting up a suite
+    Log To Console    Setting up ${SUITE NAME} keywords
+⑥
+Suite Teardown Keywords
+    [Documentation]    A keyword for tearing down a suite
+    Log To Console    Tearing down suite keywords
+⑥
+Task Setup Keywords
+    [Documentation]    A keyword for setting up a task
+    Log To Console    Setting up ${TASK NAME} keywords
+⑥
+Task Teardown Keywords
+    [Documentation]    A keyword for tearing down a task
+    Log To Console    Tearing down task keywords
+⑨
+```
+
+  </TabItem>
+</Tabs>
+
 ##### Example Resource File Vertical Spacing
 
 ```robot
@@ -477,11 +672,26 @@ Separation of tokens should be **4 spaces** as described in the the recommended 
 
 Separation thus is the vertical space between tokens, where tokens are any keywords, variables, constructs.
 
+<Tabs>
+  <TabItem  value="tests" label="Tests">
+
 ```robot
 *** Test Cases ***
 My Test
-    Keyword One····argument1····argument2
+    Keyword One····argument1····argument2 
 ```
+
+  </TabItem>
+  <TabItem  value="tasks" label="RPA">
+
+```robot
+*** Tasks ***
+My Task
+    Keyword One····argument1····argument2 
+```
+
+  </TabItem>
+</Tabs>
 
 #### Indentation
 
@@ -588,19 +798,28 @@ ${VAR2}    2
 
 The test case, task and keyword names should always start at the first character on a line. Test steps, task steps and keywords called from within keyword should be indented.
 
-``` robot
+<Tabs>
+  <TabItem  value="tests" label="Tests">
+
+```robot
 *** Test Cases ***
 My First Test Case
     Test Step One
-    ${myvar}    Test Step Two That Returns A Value
+    ${myvar}    Test Step Two That Returns A Value 
 ```
 
-``` robot
+  </TabItem>
+  <TabItem  value="tasks" label="RPA">
+
+```robot
 *** Tasks ***
 My First Task
     Task Step One
     ${myvar}    Task Step Two That Returns A Value
 ```
+
+  </TabItem>
+</Tabs>
 
 ``` robot
 *** Keywords ***
