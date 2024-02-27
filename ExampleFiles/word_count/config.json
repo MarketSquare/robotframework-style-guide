@@ -1,0 +1,12 @@
+{
+    "name": "word_count_ugly",
+    "description": "readme.md",
+    "files": [
+        {
+            "fileName": "word_count_ugly.robot"
+        },
+        {
+            "fileName": "sortdict.py"
+        }
+    ]
+}
