@@ -1,0 +1,17 @@
+{
+    "name": "word_count_ugly",
+    "description": "description.md",
+    "files": [
+        {
+            "fileName": "word_count_pretty.robot"
+        },
+        {
+            "fileName": "sortdict.py"
+        },
+        {
+            "fileName": "Browser.py",
+            "hidden": true
+        }
+    ],
+    "robotVersion": "7.0"
+}
