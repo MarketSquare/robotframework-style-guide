@@ -14,7 +14,4 @@
         }
     ],
     "robotVersion": "7.0",
-    "requirements": [
-        "robotframework-jsonlibrary"
-    ]
 }
