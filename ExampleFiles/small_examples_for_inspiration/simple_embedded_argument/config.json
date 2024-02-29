@@ -1,0 +1,10 @@
+{
+    "name": "simple_embedded_argument",
+    "description": "description.md",
+    "files": [
+        {
+            "fileName": "simple_embedded_argument.robot"
+        }
+    ],
+    "robotVersion": "7.0"
+}

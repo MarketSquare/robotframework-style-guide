@@ -1,0 +1,10 @@
+{
+    "name": "even_or_odd",
+    "description": "description.md",
+    "files": [
+        {
+            "fileName": "even_or_odd.robot"
+        }
+    ],
+    "robotVersion": "7.0"
+}
