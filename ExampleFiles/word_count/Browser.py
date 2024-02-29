@@ -1,7 +1,7 @@
 from robot.api.deco import keyword,library
 
 @library
-class browser:
+class Browser:
     @keyword
     def new_browser(browser, headless):
         return None
