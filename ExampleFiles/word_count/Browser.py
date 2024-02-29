@@ -15,7 +15,7 @@ class browser:
         return None
     
     @keyword
-    def close_page()
+    def close_page():
         return None
 
     @keyword
