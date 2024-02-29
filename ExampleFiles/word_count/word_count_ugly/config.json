@@ -1,6 +1,6 @@
 {
     "name": "word_count_ugly",
-    "description": "readme.md",
+    "description": "description.md",
     "files": [
         {
             "fileName": "word_count_ugly.robot"
@@ -8,10 +8,10 @@
         {
             "fileName": "sortdict.py"
         },
-        {   
+        {
             "fileName": "Browser.py",
             "hidden": true
-        }        
+        }
     ],
     "robotVersion": "7.0"
 
