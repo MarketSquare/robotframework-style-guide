@@ -1,5 +1,5 @@
 *** Settings ***
-Library    Browser
+Library    Browser.py
 Suite Setup    New Browser    browser=firefox    headless=true
 Test Setup   New Context    viewport={'width': 1920, 'height': 1080}
 Test Timeout    2 minutes
