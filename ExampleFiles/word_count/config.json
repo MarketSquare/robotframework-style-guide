@@ -13,5 +13,9 @@
             "hidden": true
         }        
     ],
-    "robotVersion": "7.0"
+    "robotVersion": "7.0",
+    "requirements": [
+        "robotframework-jsonlibrary"
+    ]
+
 }
