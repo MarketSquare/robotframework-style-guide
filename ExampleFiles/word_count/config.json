@@ -10,7 +10,7 @@
         },
         {   
             "filename": "Browser.py",
-            "hidden": false
+            "hidden": true
         }
     ],
     "robotVersion": "7.0",
