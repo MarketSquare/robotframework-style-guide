@@ -7,11 +7,7 @@
         },
         {
             "fileName": "sortdict.py"
-        },
-        {   
-            "filename": "browser.py",
-            "hidden": true
-        }        
+        }     
     ],
     "robotVersion": "7.0"
 }
