@@ -2,14 +2,14 @@
 Library    Browser
 Suite Setup    New Browser    browser=firefox    headless=true
 Test Setup   New Context    viewport={'width': 1920, 'height': 1080}
-Test Timeout    2 minutes
+# Test Timeout    2 minutes
 Test Teardown    Close Context
 Suite Teardown    Close Browser
 Test Tags    wordcount
 Library    String
 Library    Collections
 Library    sortdict.py
-Library    JSONLibrary
+# Library    JSONLibrary
 Library    OperatingSystem
 
 *** Variables ***
@@ -22,7 +22,7 @@ ${json_file}            words.json
 Count words in Wikipedia article
      ${text}=    Extract Text From Wikipedia
      ${wordcount}    Count Words In Text    ${text}    @{SELECTED_WORDS}
-     Save Data In JSON    ${wordcount}
+     Log Dictionary   ${wordcount}
 
 *** Keywords ***
 Extract Text From Wikipedia

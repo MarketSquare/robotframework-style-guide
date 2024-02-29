@@ -28,5 +28,5 @@ class Browser:
     
     @keyword
     def get_text(self, locator):
-        return "planet star star System star star System cloud System gravity solar moon nebula galaxy earth"
+        return "A planet is a large, rounded astronomical body that is neither a star nor its remnant. The best available theory of planet formation is the nebular hypothesis, which posits that an interstellar cloud collapses out of a nebula to create a young protostar orbited by a protoplanetary disk. Planets grow in this disk by the gradual accumulation of material driven by gravity, a process called accretion. The Solar System has at least eight planets: the terrestrial planets Mercury, Venus, Earth, and Mars, and the giant planets Jupiter, Saturn, Uranus, and Neptune."
     
