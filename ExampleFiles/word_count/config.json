@@ -7,6 +7,14 @@
         },
         {
             "fileName": "sortdict.py"
+        },
+        {   
+            "filename": "Browser.py",
+            "hidden": false
         }
+    ],
+    "robotVersion": "7.0",
+    "requirements": [
+        "robotframework-jsonlibrary"
     ]
 }
