@@ -2,14 +2,12 @@
 Library    Browser
 Suite Setup    New Browser    browser=firefox    headless=true
 Test Setup   New Context    viewport={'width': 1920, 'height': 1080}
-# Test Timeout    2 minutes
 Test Teardown    Close Context
 Suite Teardown    Close Browser
 Test Tags    wordcount
 Library    String
 Library    Collections
 Library    sortdict.py
-# Library    JSONLibrary
 Library    OperatingSystem
 
 *** Variables ***
