@@ -28,5 +28,5 @@ class Browser:
     
     @keyword
     def get_text(self, locator):
-        return None
+        return "planet star star System star star System cloud System gravity solar moon nebula galaxy earth"
     
