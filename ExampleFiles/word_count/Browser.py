@@ -28,6 +28,5 @@ class browser:
     
     @keyword
     def get_text(locator):
-        return somestringstuff
-    
+        return None
     
