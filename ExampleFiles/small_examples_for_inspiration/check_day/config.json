@@ -1,0 +1,10 @@
+{
+    "name": "check_day",
+    "description": "description.md",
+    "files": [
+        {
+            "fileName": "check_day.robot"
+        }
+    ],
+    "robotVersion": "7.0"
+}
