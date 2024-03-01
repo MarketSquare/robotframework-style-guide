@@ -1,0 +1,44 @@
+# --------------------
+# README
+# --------------------
+# ROBOCOP
+# --------------------
+# [Documentation]   https://robocop.readthedocs.io/ or the command `robocop --list`.
+# --------------------
+
+[tool.robocop]
+configure = [
+    "line-too-long:line_length:100",
+	"too-many-calls-in-keyword:max_calls:20",
+    "too-many-calls-in-test-case:max_calls:20",
+    "inconsistent-assignment:assignment_sign_type:none",
+    "inconsistent-assignment-in-variables:assignment_sign_type:none"
+]
+persistent = true
+
+# --------------------
+# ROBOTIDY
+# --------------------
+# [Documentation]    https://robotidy.readthedocs.io/en/latest/
+# --------------------
+
+[tool.robotidy]
+overwrite = true
+transform = [
+    "AlignSettingsSection",
+    "AlignTestCasesSection",
+    "AlignVariablesSection",
+    "AlignKeywordsSection:alignment_type=auto",
+    "MergeAndOrderSections",
+    "OrderSettings",
+    "OrderSettingsSection:imports_order=library,resource,variables",
+    "NormalizeAssignments:equal_sign_type=remove",
+    "NormalizeNewLines:consecutive_lines=1",
+    "NormalizeSectionHeaderName",
+    "NormalizeSettingName",
+    "NormalizeTags:case=lowercase",
+    "RenameKeywords",
+    "RenameTestCases:capitalize_each_word=True",
+    "SplitTooLongLine:line_length=180:align_new_line=True",
+    "NormalizeSeparators:align_new_line=True"
+]
