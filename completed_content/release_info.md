@@ -1,5 +1,10 @@
 # Release Information
 
+## about_style_guide.md Version 0.8b 2024-03-01
+
+- Tests and RPA examples presented in tabs.
+- Stylistic fixes.
+
 ## about_style_guide.md Version 0.7b 2024-02-15
 
 - Introduction and main guide merged.
