@@ -898,7 +898,7 @@ First example
 
 ### Comments
 
-In comments there should be a space between the `#` and the actual comment. [Robocop: #missing-space-after-comment](https://robocop.readthedocs.io/en/stable/rules.html#missing-space-after-comment)
+In comments there should be a space between the `#` and the actual comment. [Robocop: #missing-space-after-comment](https://robocop.readthedocs.io/en/stable/rules_list.html#missing-space-after-comment-w0702)
 
 Comments should be avoided, write your code readable or use the `[Documentation]`.
 The only valid use of comments is for TODO's that should be fixed soon.
