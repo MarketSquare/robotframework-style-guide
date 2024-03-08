@@ -47,17 +47,17 @@ My Nested Keyword
 
 ## Line Length
 
-A line length of 120 characters is recommended. [Robocop: #line-too-long](https://robocop.readthedocs.io/en/stable/rules.html#line-too-long)
+A line length of 120 characters is recommended. [Robocop: #line-too-long](https://robocop.readthedocs.io/en/stable/rules_list.html#line-too-long-w0508)
 
 ## Trailing whitespaces
 
-Trailing whitespaces should be avoided. [Robocop: #trailing-whitespace](https://robocop.readthedocs.io/en/stable/rules.html#trailing-whitespace)
+Trailing whitespaces should be avoided. [Robocop: #trailing-whitespace](https://robocop.readthedocs.io/en/stable/rules_list.html#trailing-whitespace-w1001)
 
 ## Indentation in Settings Section
 
 Indentations should only be added when needed.
 
-The `*** Settings ***` section should always be left aligned without any indentation [Robocop: #suite-setting-should-be-left-aligned](https://robocop.readthedocs.io/en/stable/rules.html#suite-setting-should-be-left-aligned)
+The `*** Settings ***` section should always be left aligned without any indentation [Robocop: #suite-setting-should-be-left-aligned](https://robocop.readthedocs.io/en/stable/rules_list.html#suite-setting-should-be-left-aligned-e1016)
 
 ```robot
 *** Settings ***
@@ -68,7 +68,7 @@ Variables    vars.robot
 
 ## Indentation in Variables Section
 
-The `*** Variables ***` secion should always be left aligned without any indentation [Robocop: #variable-should-be-left-aligned](https://robocop.readthedocs.io/en/stable/rules.html#variable-should-be-left-aligned)
+The `*** Variables ***` secion should always be left aligned without any indentation [Robocop: #variable-should-be-left-aligned](https://robocop.readthedocs.io/en/stable/rules_list.html#variable-should-be-left-aligned-e1014)
 
 ```robot
 *** Variables ***
@@ -139,7 +139,7 @@ Test Step Two That Returns A Value
 
 ## Block Indentation
 
-Blocks like `IF`, `WHILE`, `FOR` and `TRY/EXCEPT` should always be indented such that the keywords that are run within the loop have to be indented from the lines that start and end the block. [Robocop: #bad-indent](https://robocop.readthedocs.io/en/stable/rules.html#bad-indent)
+Blocks like `IF`, `WHILE`, `FOR` and `TRY/EXCEPT` should always be indented such that the keywords that are run within the loop have to be indented from the lines that start and end the block. [Robocop: #bad-indent](https://robocop.readthedocs.io/en/stable/rules_list.html#bad-indent-w1008)
 
 ### Examples from the User Guide
 
@@ -203,7 +203,7 @@ First example
 
 ## Comments
 
-In comments there should be a space between the `#` and the actual comment. [Robocop: #missing-space-after-comment](https://robocop.readthedocs.io/en/stable/rules.html#missing-space-after-comment)
+In comments there should be a space between the `#` and the actual comment. [Robocop: #missing-space-after-comment](https://robocop.readthedocs.io/en/stable/rules_list.html#missing-space-after-comment-w0702)
 
 Comments should be avoided, write your code readable or use the `[Documentation]`.
 The only valid use of comments is for TODO's that should be fixed soon.
