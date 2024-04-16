@@ -1808,3 +1808,11 @@ Attribute Variables
     Set Suite Variable        ${SUITE VARIABLE.name}    this is a suite variable
     ${SUITE VARIABLE.bar}     Set Variable              this is a suite attribute
 ```
+
+## Test Templates
+
+[Test Templates](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-templates)
+
+- ### TO DO: Suite-level template (template_example1.robot)
+- ### TO DO: Test-level template (template_example2.robot)
+- ### TO DO: Test templates with embedded args
