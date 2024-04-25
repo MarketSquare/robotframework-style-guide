@@ -1813,6 +1813,30 @@ Attribute Variables
 
 [Test Templates](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-templates)
 
-- ### TO DO: Suite-level template (template_example1.robot)
+Style recommendations for the `***Comments***`, `***Settings***` and `***Variables***` sections when using Test Templates, are the same as for the 'normal' Test Cases or Tasks. Please refer to the respective sections in this Style Guide for more information.
+
+### Test Template defined in the `***Settings***` section 
+
+#### Test Cases or Tasks
+
+#### Keywords
+Keyword used as a Template follows general rules for Keywords, except
+how Tags and Documentations can be set to achieve clear and consistent
+Test Case formatting.
+
+Same Tag for all test cases:
+
+Different Tag and Documentation for each test case:
+
+
+
+
+
+
+
+
+
+
+- Suite-Level ( (template_example1.robot))
 - ### TO DO: Test-level template (template_example2.robot)
 - ### TO DO: Test templates with embedded args
