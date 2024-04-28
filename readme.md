@@ -1,6 +1,6 @@
 # Introduction
 
-This repository is dedicated to creating the content for the robotframework style guide. Ultimately it is publised on the robotframework [guides](https://docs.robotframework.org/docs) pages.
+This repository is dedicated to creating the content for the robotframework style guide. Ultimately it is published on the robotframework [guides](https://docs.robotframework.org/docs) pages.
 
 ## Folder Structure
 
