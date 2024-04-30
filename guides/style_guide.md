@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Style Guide
 
-Version 0.7b
+Version 0.9b
 
 ## Introduction
 
@@ -71,7 +71,7 @@ User Guide Reference: [Test Data Section](https://robotframework.org/robotframew
 *** Variables ***
 
 
-*** Test Cases *** 
+*** Test Cases ***
 
 
 *** Keywords ***
@@ -241,7 +241,7 @@ Keyword With Static Variables
     ${dynamic variable}            Catenate                   SEPARATOR=${SPACE}    ${static variable}                             ${other static variable}    ${argument}
     ${another dynamic variable}    Evaluate                   $static variable.upper()
     Log To Console                 ${dynamic variable}
-    Should Not Be Equal            ${static variable}         ${other static variable} 
+    Should Not Be Equal            ${static variable}         ${other static variable}
 ```
 
 #### Keyword Organization
@@ -297,7 +297,7 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
 
 
     *** Keywords ***
-    Keyword 
+    Keyword
 ```
 
   </TabItem>
@@ -342,21 +342,21 @@ These are the recommended vertical space guidelines for `.robot` and `.resource`
 
 ```robot
     *** Settings ***
-    Documentation  
-    Metadata 
+    Documentation
+    Metadata
 
-    Library  
-    Resource  
-    Variables  
+    Library
+    Resource
+    Variables
 
-    Suite Setup  
+    Suite Setup
     Suite Teardown
     Test Setup
     Test Teardown
     Test Template
     Test Timeout
 
-    Default Tags  
+    Default Tags
     Test Tags
 ```
 
@@ -678,7 +678,7 @@ Separation thus is the vertical space between tokens, where tokens are any keywo
 ```robot
 *** Test Cases ***
 My Test
-    Keyword One····argument1····argument2 
+    Keyword One····argument1····argument2
 ```
 
   </TabItem>
@@ -687,7 +687,7 @@ My Test
 ```robot
 *** Tasks ***
 My Task
-    Keyword One····argument1····argument2 
+    Keyword One····argument1····argument2
 ```
 
   </TabItem>
@@ -757,7 +757,7 @@ After the first argument to libraries all other arguments should either:
 ```robot
 *** Settings ***
 Library       String
-Library       DataDriver    my_data_file.csv    dialect=UserDefined    delimiter=.  
+Library       DataDriver    my_data_file.csv    dialect=UserDefined    delimiter=.
 Library       Telnet    timeout=3s    newline=CLRF    encoding=UTF-8
 Resource      ${resourcedir}/mykeywords.resource
 Resource      ${resourcedir}/myotherkeywords.resource
@@ -769,7 +769,7 @@ Test Tags     mytag
 ```robot
 *** Settings ***
 Library       String
-Library       DataDriver    my_data_file.csv    dialect=UserDefined    delimiter=.  
+Library       DataDriver    my_data_file.csv    dialect=UserDefined    delimiter=.
 Library       Telnet        timeout=3s          newline=CLRF           encoding=UTF-8
 Resource      ${resourcedir}/mykeywords.resource
 Resource      ${resourcedir}/myotherkeywords.resource
@@ -805,7 +805,7 @@ The test case, task and keyword names should always start at the first character
 *** Test Cases ***
 My First Test Case
     Test Step One
-    ${myvar}    Test Step Two That Returns A Value 
+    ${myvar}    Test Step Two That Returns A Value
 ```
 
   </TabItem>
@@ -1354,7 +1354,7 @@ Variable Casing Test
 Same Variable Different Scope Test
     [Documentation]    The SUITE variable is overwritten by an argument then TEST scoped variable of same name.
     A Keyword With Arguments    This will be printed.
-    Should Not Be Equal     ${I AM A VARIABLE}    This is a SUITE scoped variables 
+    Should Not Be Equal     ${I AM A VARIABLE}    This is a SUITE scoped variables
 
 
 *** Keywords ***
@@ -1502,7 +1502,7 @@ ${VARIABLES_PATH}    ${RESOURCE_PATH}/Variables
 ```
 
   </TabItem>
-</Tabs>  
+</Tabs>
 
 ---
 
@@ -1549,7 +1549,7 @@ ${VARIABLES PATH}    ${RESOURCE PATH}/Variables
 ```
 
   </TabItem>
-</Tabs>  
+</Tabs>
 
 ---
 
@@ -1607,7 +1607,7 @@ A Keyword of Variables
 ```
 
   </TabItem>
-</Tabs>  
+</Tabs>
 
 Treat keyword arguments as local variables for naming purposes.
 
@@ -1745,7 +1745,7 @@ Create Json Body Option Two
 ```
 
   </TabItem>
-</Tabs>  
+</Tabs>
 
 #### Embedded Variables
 
@@ -1766,7 +1766,7 @@ Set Suite Variables
     Set Suite Variable    ${EMBED VAR}   embedded
     Set Suite Variable    ${VARIABLE ${EMBED VAR}}    good embedded variable
     Set Suite Variable    ${FOO}    eggs
-    Set Suite Variable    ${BAR}    spam  
+    Set Suite Variable    ${BAR}    spam
     Set Suite Variable    ${VARIABLE ${FOO} ${BAR}}    questionable variable
     Set Suite Variable    ${VAR}    one
     Set Suite Variable    ${WITHIN ${VAR}}  two
@@ -1783,7 +1783,7 @@ Set Suite Variables
     Set Suite Variable    ${EMBED_VAR}   embedded
     Set Suite Variable    ${VARIABLE_${EMBED_VAR}}    good embedded variable
     Set Suite Variable    ${FOO}    eggs
-    Set Suite Variable    ${BAR}    spam  
+    Set Suite Variable    ${BAR}    spam
     Set Suite Variable    ${VARIABLE_${FOO}_${BAR}}    questionable variable
     Set Suite Variable    ${VAR}    one
     Set Suite Variable    ${WITHIN_${VAR}}  two
@@ -1792,7 +1792,7 @@ Set Suite Variables
 ```
 
   </TabItem>
-</Tabs>  
+</Tabs>
 
 #### Variables with Attributes
 
