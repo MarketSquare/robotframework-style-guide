@@ -1,5 +1,9 @@
 # Release Information
 
+## style_guide.md Version 0.9b 2024-03-19
+
+- Fixed Broken links to robocop and robotidy, thanks @kkotenko
+
 ## about_style_guide.md Version 0.8b 2024-03-01
 
 - Tests and RPA examples presented in tabs.
