@@ -1892,7 +1892,7 @@ Template Keyword
 
 ##### Tags and Documentation in template test cases
 
-In special cases, there might be a need to specify Tags and Documentation for each template test case.
+In special cases, there might be a need to specify Tags and Documentation for each test case.
 To achieve consistent formatting, they can also be represented in columns by passing them as arguments
 to the Template Keyword:
 
@@ -1919,7 +1919,8 @@ Set Tags And Documentation
    Set Test Documentation    ${documentation}
 ```
 
-Here, column titles for the [Tags] and [Documentation] are surrounded with square brackets to resemble the Settings syntax. This is to distinguish them from the test data.
+Here, column titles for the [Tags] and [Documentation] are surrounded with square brackets to resemble the Settings
+syntax. This is to distinguish them from the test data.
 
 
 #### Test Template in the ***Test Cases*** section.
