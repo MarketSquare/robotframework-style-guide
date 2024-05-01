@@ -1893,6 +1893,16 @@ Template Keyword
   </TabItem>
 </Tabs>  
 
+In special cases, there might be a need to specify Tags and Documentation for each template test case.
+For consistent formatting, Tags and Documentation can also be
+represented as columns. To achieve this, Tags and Documentation can also be passed as arguments to the
+Template Keyword.
+
+
+Here, column titles for the [Tags] and [Documentation] are surrounded with square brackets to resemble the Settings syntax. This is to distinguish them from the test data.
+
+
+
 
 #### Test Template in the ***Test Cases*** section.
 
