@@ -1919,9 +1919,8 @@ Set Tags And Documentation
    Set Test Documentation    ${documentation}
 ```
 
-Here, column titles for the [Tags] and [Documentation] are surrounded with square brackets to resemble the Settings
+Column titles for the [Tags] and [Documentation] are surrounded with square brackets to resemble the Settings
 syntax. This is to distinguish them from the test data.
-
 
 #### Test Template in the ***Test Cases*** section.
 
