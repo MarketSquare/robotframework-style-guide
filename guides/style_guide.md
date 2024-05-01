@@ -1813,11 +1813,90 @@ Attribute Variables
 
 [Test Templates](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-templates)
 
-Style recommendations for the `***Comments***`, `***Settings***` and `***Variables***` sections when using Test Templates, are the same as for the 'normal' Test Cases or Tasks. Please refer to the respective sections in this Style Guide for more information.
+*Relevant sections here: Settings, Test Cases/Tasks, Keywords.*
 
-### Test Template defined in the `***Settings***` section 
+- Settings
+- Variables
+- Test Cases Or Tasks
+- Keywords
 
-#### Test Cases or Tasks
+#### General rules
+
+- this rule
+- that rule
+
+#### Test Template in the *Settings* section
+
+- Each test case and corresponding test data should be placed on the same line.
+- There should be no empty lines between test cases, however, tests can be
+grouped logically and separated by a single line if needed.
+- Each column should be left-aligned.
+- Test case names, data columns and their titles should be aligned vertically with respect to each other.
+- Data column names should be capitalized.
+- There should be 4 spaces between the columns.
+
+
+
+
+<Tabs>
+  <TabItem value="Simple example" label="Example 1">
+
+```robot
+*** Settings ***
+Documentation    Dummy Template example for illustration.
+Test Template    Template Keyword
+Test Tags        example
+
+
+*** Test Cases ***              ARG           SECOND ARG    ANOTHER ARG
+Test                            00000         aaaa          AAAAAAAAAA
+Another Test                    1111111111    bbb           BBBBBBBBBBBBBB
+One More Test With Long Name    222           cc            CCCCCCCCCCCCCCC
+
+
+*** Keywords ***
+Template Keyword
+    [Arguments]    ${arg1}    ${arg2}    ${arg3}
+    Do Something
+```
+
+  </TabItem>
+  <TabItem value="Example with grouped test cases" label="Example 2">
+
+```robot
+*** Settings ***
+Documentation    Here, test cases are grouped according to the ARG values.
+Test Template    Template Keyword
+Test Tags        example
+
+
+*** Test Cases ***              ARG           SECOND ARG    ANOTHER ARG
+Test                            00000         aaaa          AAAAAAAAAA
+Another Test                    1111111111    bbb           BBBBBBBBBBBBBB
+One More Test With Long Name    222           cc            CCCCCCCCCCCCCCC
+
+Test With Empty                 ${EMPTY}      aaaa          AAAAAAAAAA
+Another Test With Empty         ${EMPTY}      bbb           BBBBBBBBBBBBBB
+One More Test With Empty        ${EMPTY}      cc            CCCCCCCCCCCCCCC
+
+Test With None                  ${NONE}       aaaa          AAAAAAAAAA
+Another Test With None          ${NONE}       bbb           BBBBBBBBBBBBBB
+One More Test With None         ${NONE}       cc            CCCCCCCCCCCCCCC
+
+
+*** Keywords ***
+Template Keyword
+    [Arguments]    ${arg1}    ${arg2}    ${arg3}
+    Do Something
+```
+
+  </TabItem>
+</Tabs>  
+
+
+#### Test Template in the ***Test Cases*** section.
+
+#### Task Template in the ***Tasks*** section.
 
 #### Keywords
 Keyword used as a Template follows general rules for Keywords, except
@@ -1828,15 +1907,5 @@ Same Tag for all test cases:
 
 Different Tag and Documentation for each test case:
 
+#### Test Templates with embedded args - anything different we want to say?
 
-
-
-
-
-
-
-
-
-- Suite-Level ( (template_example1.robot))
-- ### TO DO: Test-level template (template_example2.robot)
-- ### TO DO: Test templates with embedded args
