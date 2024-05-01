@@ -1827,6 +1827,9 @@ Attribute Variables
 
 #### Test Template in the *Settings* section
 
+
+##### WTHIS IS hen each test case has it's data and name
+
 - Each test case and corresponding test data should be placed on the same line.
 - There should be no empty lines between test cases, however, tests can be
 grouped logically and separated by a single line if needed.
@@ -1840,7 +1843,7 @@ grouped logically and separated by a single line if needed.
 
 ```robot
 *** Settings ***
-Documentation    Dummy Template example for illustration.
+Documentation    Template example with three separate test cases.
 Test Template    Template Keyword
 Test Tags        example
 
@@ -1889,6 +1892,11 @@ Template Keyword
 
   </TabItem>
 </Tabs>
+
+##### HERE WHEN we have only title, and pass args. We need third tab above.
+
+template_example1_3.robot  --> this can be pluggged in between == the 2nd tab.
+ 
 
 ##### Tags and Documentation in template test cases
 
