@@ -1835,9 +1835,6 @@ grouped logically and separated by a single line if needed.
 - Data column names should be capitalized.
 - There should be 4 spaces between the columns.
 
-
-
-
 <Tabs>
   <TabItem value="Simple example" label="Example 1">
 
@@ -1891,10 +1888,12 @@ Template Keyword
 ```
 
   </TabItem>
-</Tabs>  
+</Tabs>
+
+##### Tags and Documentation in template test cases
 
 In special cases, there might be a need to specify Tags and Documentation for each template test case.
-For consistent formatting, they can also be represented in columns by passing them as arguments
+To achieve consistent formatting, they can also be represented in columns by passing them as arguments
 to the Template Keyword:
 
 ```robot
@@ -1923,20 +1922,8 @@ Set Tags And Documentation
 Here, column titles for the [Tags] and [Documentation] are surrounded with square brackets to resemble the Settings syntax. This is to distinguish them from the test data.
 
 
-
-
 #### Test Template in the ***Test Cases*** section.
 
 #### Task Template in the ***Tasks*** section.
 
-#### Keywords
-Keyword used as a Template follows general rules for Keywords, except
-how Tags and Documentations can be set to achieve clear and consistent
-Test Case formatting.
-
-Same Tag for all test cases:
-
-Different Tag and Documentation for each test case:
-
 #### Test Templates with embedded args - anything different we want to say?
-
