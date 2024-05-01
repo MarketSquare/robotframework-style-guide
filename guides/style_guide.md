@@ -1894,14 +1894,13 @@ Template Keyword
 </Tabs>  
 
 In special cases, there might be a need to specify Tags and Documentation for each template test case.
-For consistent formatting, they can also be represented in columns.
-To achieve this, Tags and Documentation can be passed as arguments to the Template Keyword.
+For consistent formatting, they can also be represented in columns by passing them as arguments
+to the Template Keyword:
 
 ```robot
 *** Settings ***
-Documentation    Different [Tags] and [Documentation] for each test case.
+Documentation    Different Tags and Documentation for each test case.
 Test Template    Template Keyword
-Test Tags        example
 
 
 *** Test Cases ***    USERNAME    PASSWORD    [Tags]    [Documentation]
@@ -1910,10 +1909,10 @@ TestB                 bbb         BBB         tagB      Prints another message
 
 
 *** Keywords ***
-My Template Keyword
+Template Keyword
     [Arguments]    ${username}    ${password}    ${tag}    ${documentation}
     [Setup]    Set Tags And Documentation    ${tag}    ${documentation}
-    Logd    Username:${username}, Password:${password}
+    Log    Username:${username}, Password:${password}
 
 Set Tags And Documentation
    [Arguments]    ${tag}    ${documentation}
