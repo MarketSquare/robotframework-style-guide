@@ -1,3 +1,9 @@
+# DEPRECATED
+
+Please create any PRs on this content directly to the [Robotframework Guides](https://github.com/MarketSquare/robotframeworkguides) repository.
+
+To make the releaseprocess for the Style Guide easier, the content has moved to the Robotframework Guides repository at [`/website/docs/style_guide.md`](https://github.com/MarketSquare/robotframeworkguides/website/docs/style_guide.md). Any future changes to the Style Guide will be done and maintained from there.
+
 # Introduction
 
 This repository is dedicated to creating the content for the robotframework style guide. Ultimately it is publised on the robotframework [guides](https://docs.robotframework.org/docs) pages.
